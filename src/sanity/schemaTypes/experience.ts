@@ -1,0 +1,60 @@
+export default {
+  name: "experience",
+  title: "Experience",
+  type: "document",
+  fields: [
+    { name: "title", type: "string", title: "Title", validation: (r: any) => r.required() },
+    {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: { source: "title", maxLength: 96 },
+      validation: (r: any) => r.required(),
+    },
+    {
+      name: "category",
+      type: "string",
+      title: "Category",
+      options: {
+        list: [
+          { title: "Safari", value: "safari" },
+          { title: "Culture", value: "culture" },
+          { title: "Beach", value: "beach" },
+          { title: "Nature", value: "nature" },
+          { title: "Wellness", value: "wellness" },
+        ],
+      },
+    },
+    { name: "etc", type: "string", title: "Ect" },
+    { name: "heroImage", type: "image", title: "Hero Image", options: { hotspot: true } },
+    { name: "description", type: "text", title: "Description" },
+    { name: "herotitle1", type: "string", title: "Hero Title 1" },
+    { name: "herotitle2", type: "string", title: "Hero Title 2" },
+    { name: "herodesc", type: "string", title: "Hero Description" },
+    { name: "section2title1", type: "string", title: "2nd Section Title" },
+    { name: "section2title2", type: "string", title: "2nd Section Title 2" },
+    {
+      name: "gallery",
+      title: "Gallery",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+    },
+    {
+      name: "details",
+      title: "Details",
+      type: "object",
+      fields: [
+        { name: "duration", type: "string", title: "Duration" },
+        { name: "startTime", type: "string", title: "Start Time" },
+        { name: "pickup", type: "string", title: "Pickup" },
+        { name: "difficulty", type: "string", title: "Difficulty" },
+        {
+          name: "includes",
+          type: "array",
+          of: [{ type: "string" }],
+          title: "Includes",
+        },
+      ],
+    },
+  ],
+};

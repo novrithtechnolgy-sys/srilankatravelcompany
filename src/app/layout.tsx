@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Belleza, Quicksand } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const belleza = Belleza({
   subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-belleza",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const quicksand = Quicksand({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-quicksand",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +28,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${belleza.variable} ${quicksand.variable}h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
+      <Footer />
     </html>
   );
 }
