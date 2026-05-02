@@ -131,7 +131,7 @@ export default function AdventureCarousel() {
   return (
     <>
       <div
-        className="relative min-h-screen flex flex-col items-center justify-center py-10 md:py-20 overflow-hidden"
+        className="relative md:min-h-screen flex flex-col items-center justify-center py-10 md:py-20 overflow-hidden"
       >
       <Container>
       <div className="flex flex-col items-center justify-center">
@@ -142,7 +142,7 @@ export default function AdventureCarousel() {
 
         {/* Heading */}
         <h1
-          className="text-[34px] md:text-[40px] xl:text-[64px] text-center md:text-left text-section font-semibold leading-tight mb-26 md:mb-16"
+          className="text-[34px] md:text-[40px] xl:text-[64px] text-center md:text-left text-section font-semibold leading-tight mb-8 md:mb-16"
         >
           <span className="text-[#C8591A]">Find Your </span>
           <span className="text-[#1E3355]">Perfect Adventure</span>
@@ -152,7 +152,7 @@ export default function AdventureCarousel() {
         <div className="pointer-events-none md:absolute right-0 2xl:right-20 top-0 h-full w-64 bg-gradient-to-l from-white to-transparent z-20" />
 
         {/* Carousel track */}
-        <div className="relative z-10 w-full h-[300px] md:h-[420px] rounded-[32px] flex items-center justify-center ">
+        <div className="hidden md:block relative z-10 w-full h-[300px] md:h-[420px] rounded-[32px] flex items-center justify-center ">
           {adventures.map((adv, i) => {
             const pos = getPosition(i);
             return (
@@ -197,8 +197,58 @@ export default function AdventureCarousel() {
           </button>
         </div>
 
+        {/* ================= MOBILE ================= */}
+        <div className="md:hidden">
+          {/* Image */}
+          <div className="relative w-full h-[360px] rounded-[24px] overflow-hidden mb-6">
+            <img
+              src={active.img}
+              alt={active.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Text */}
+          {/* <h3 className="text-[22px] font-semibold text-blue-900 mb-3">
+            {active.title}
+          </h3>
+
+          <p className="text-gray-600 text-[15px] leading-relaxed px-2">
+            {active.description}
+          </p> */}
+
+          {/* Dots */}
+          {/* <div className="flex justify-center gap-2 mt-6">
+            {adventures.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`h-2 rounded-full transition-all ${
+                  i === index ? "w-6 bg-[#1D4063]" : "w-2 bg-gray-300"
+                }`}
+              />
+            ))}
+          </div> */}
+        <button
+            onClick={() => go(-1)}
+            aria-label="Previous"
+            className="absolute left-0 top-1/2 md:top-1/2 -translate-y-1/2 z-30 w-[42px] h-[42px] flex items-center justify-center rounded-full border border-[#e2ddd6] bg-white/90 backdrop-blur-sm text-[#1E3355] text-xl shadow-md transition-all duration-200 hover:bg-white hover:scale-110 font-mono cursor-pointer"
+          >
+            ‹
+          </button>
+
+          {/* Next button */}
+          <button
+            onClick={() => go(1)}
+            aria-label="Next"
+            className="absolute right-0 top-1/2 md:top-1/2 -translate-y-1/2 z-30 w-[42px] h-[42px] flex items-center justify-center rounded-full border border-[#e2ddd6] bg-white/90 backdrop-blur-sm text-[#1E3355] text-xl shadow-md transition-all duration-200 hover:bg-white hover:scale-110 font-mono cursor-pointer"
+          >
+            ›
+          </button>
+        </div>
+
         {/* Caption */}
-        <div className="relative z-10 mt-11 text-center max-w-[560px] transition-opacity duration-300">
+        <div className="relative z-10 md:mt-11 text-center max-w-[560px] transition-opacity duration-300">
           <h2
             className="text-[24px] md:text-[26px] text-body-header font-semibold mb-4 text-blue-900"
             style={{ letterSpacing: "-0.01em" }}
