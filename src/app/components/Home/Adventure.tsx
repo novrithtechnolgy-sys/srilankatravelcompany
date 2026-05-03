@@ -9,35 +9,35 @@ const adventures = [
     title: "Wildlife Safari",
     description:
       "Track majestic elephants through misty jungles on an unforgettable jeep safari at dawn, guided by expert naturalists.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777128330/copy_of_cb56c508205319764905ac5c64656f960a29b322_1_w4muue_3e4d9a.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777743087/0bd27a780ad23f3f1deb9c4113170bdc617b6c5b_asgcei.webp",
   },
   {
     id: 2,
     title: "Cultural Heritage",
     description:
       "Step into the sacred silence of ancient stupas, draped in colorful prayer flags, alive with centuries of devotion.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777128330/copy_of_cb56c508205319764905ac5c64656f960a29b322_1_w4muue_3e4d9a.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777742986/5491ab34e53267e9bf48f611c08361662bbd096b_1_ui1jij.jpg",
   },
   {
     id: 3,
     title: "Beach & Wellness",
     description:
       "Escape to the pristine southern coastline to rejuvenate your spirit with a day of golden sands, tranquil turquoise waters, and traditional wellness experiences.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777128330/copy_of_cb56c508205319764905ac5c64656f960a29b322_1_w4muue_3e4d9a.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777743074/de3d80a22ba8792ea930184a59be3f8da98b7346_1_i9g8ya.webp",
   },
   {
     id: 4,
     title: "Tea Country",
     description:
       "Wind through emerald terraces of highland tea estates as golden light spills over misty mountain valleys.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777128330/copy_of_cb56c508205319764905ac5c64656f960a29b322_1_w4muue_3e4d9a.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777743084/a2f882b4c6e65d48e1cce869ac4b91dc1f84a4c5_bgrhzl.webp",
   },
   {
     id: 5,
     title: "Luxury Transfer",
     description:
       "Travel between wonders in curated comfort — private vehicles, expert drivers, and seamless door-to-door service.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777128330/copy_of_cb56c508205319764905ac5c64656f960a29b322_1_w4muue_3e4d9a.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777743072/5f516dcd3841dd40ef46559dc36f355b4d8f7d0a_2_fombkn.webp",
   },
 ];
 

@@ -76,7 +76,7 @@ export default function JourneySection({
 
         {/* GALLERY */}
         {gallery?.length > 0 && (
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             {/* LEFT BIG IMAGE */}
             <div className="relative h-[300px] md:h-[600px] rounded-[20px] overflow-hidden">
               <Image
@@ -88,7 +88,7 @@ export default function JourneySection({
             </div>
 
             {/* RIGHT GRID */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
               {gallery.slice(1, 4).map((img, i) => (
                 <div
                   key={i}

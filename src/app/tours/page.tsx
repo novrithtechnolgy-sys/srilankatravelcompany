@@ -20,8 +20,8 @@ export default function Experience() {
             <ExperienceGrid />
             <TransfersSection />
             <HeroBanner
-                title="Ready for"
-                highlight="Just See Sri Lanka. Live It."
+                title="Just See Sri Lanka. Live It."
+                highlight="Do Not"
                 subtitle="Your next great story is just a sunrise away. Let’s make it legendary."
                 buttonText="WhatsApp"
                 backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777735607/de5c741a9ae4efbdf1c702989446def35a7a0e87_1_i3vtuq.webp"

@@ -185,7 +185,7 @@ export default function Testimonials() {
                     </div>
 
                     <p className="text-gray-700 leading-relaxed mb-6">
-                      "{item.text}"
+                      {item.text}
                     </p>
 
                     <div className="flex items-center gap-3">

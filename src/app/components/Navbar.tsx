@@ -20,7 +20,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  // scroll effect
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80);
@@ -44,116 +44,105 @@ export default function Navbar() {
         <Container>
           <div
             className={clsx(
-              "flex items-center justify-between px-4 py-3 rounded-full shadow-md transition-all duration-500",
+              "flex flex-col rounded-2xl shadow-md transition-all duration-500",
               scrolled
                 ? "bg-white backdrop-blur-md shadow-lg"
                 : "bg-white/80 backdrop-blur-md"
             )}
           >
-            {/* Logo */}
-            <Link href="/">
-              <Image
-                src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777116898/Frame_344_rlbart.png"
-                alt="Logo"
-                width={140}
-                height={140}
-                className="h-8 md:h-10 w-auto"
-              />
-            </Link>
+            {/* TOP BAR */}
+            <div className="flex items-center justify-between px-4 py-3">
+              {/* Logo */}
+              <Link href="/">
+                <Image
+                  src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777116898/Frame_344_rlbart.png"
+                  alt="Logo"
+                  width={140}
+                  height={140}
+                  className="h-8 md:h-10 w-auto"
+                />
+              </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-2 bg-[#efe7d7] px-2 py-1 rounded-full">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
+              {/* Desktop Nav */}
+              <div className="hidden md:flex items-center gap-2 bg-[#efe7d7] px-2 py-1 rounded-full">
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
 
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={clsx(
-                      "px-5 py-2 rounded-full text-sm transition",
-                      isActive
-                        ? "bg-[#1D4063] text-white"
-                        : "text-gray-700 hover:bg-white"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={clsx(
+                        "px-5 py-2 rounded-full text-sm transition",
+                        isActive
+                          ? "bg-[#1D4063] text-white"
+                          : "text-gray-700 hover:bg-white"
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* Desktop Button */}
+              <Link
+                href="/contact"
+                className="hidden md:block bg-[#1D4063] text-white px-5 py-2 rounded-full text-sm"
+              >
+                Contact Us
+              </Link>
+
+              {/* Mobile Toggle */}
+              <button
+                onClick={() => setOpen(!open)}
+                className="md:hidden"
+              >
+                {open ? <X size={28} /> : <Menu size={28} />}
+              </button>
             </div>
 
-            {/* Desktop Button */}
-            <Link
-              href="/contact"
-              className="hidden md:block bg-[#1D4063] text-white px-5 py-2 rounded-full text-sm"
+            {/* MOBILE DROPDOWN */}
+            <div
+              className={clsx(
+                "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+                open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              )}
             >
-              Contact Us
-            </Link>
+              <div className="px-4 pb-4 border-t border-gray-200">
+                <div className="flex flex-col gap-4 mt-4 text-gray-700 font-medium">
+                  
+                  {navLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={clsx(
+                        "relative pb-1 transition-all",
+                        pathname === item.href
+                          ? "text-blue-900 font-semibold"
+                          : "text-gray-700 hover:text-blue-500"
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
 
-            {/* MOBILE MENU BUTTON */}
-            <button
-              onClick={() => setOpen(true)}
-              className="md:hidden"
-            >
-              <Menu size={28} />
-            </button>
+                  {/* Mobile Button */}
+                  <Link
+                    href="/contact"
+                    className="mt-2 bg-[#1D4063] text-white px-5 py-2 rounded-full text-sm text-center"
+                    onClick={() => setOpen(false)}
+                  >
+                    Contact Us
+                  </Link>
+
+                </div>
+              </div>
+            </div>
+
           </div>
         </Container>
-      </div>
-
-      {/* MOBILE DRAWER */}
-      <div
-        className={clsx(
-          "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-opacity",
-          open ? "opacity-100 visible" : "opacity-0 invisible"
-        )}
-        onClick={() => setOpen(false)}
-      />
-
-      <div
-        className={clsx(
-          "fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white z-50 shadow-xl transition-transform duration-300",
-          open ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        {/* HEADER */}
-        <div className="flex items-center justify-between p-4 border-b">
-          <span className="font-semibold text-lg">Menu</span>
-          <button onClick={() => setOpen(false)}>
-            <X size={24} />
-          </button>
-        </div>
-
-        {/* LINKS */}
-        <div className="flex flex-col p-6 gap-4">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={clsx(
-                  "text-lg font-medium",
-                  isActive ? "text-[#1D4063]" : "text-gray-700"
-                )}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-
-          {/* Contact */}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="mt-4 bg-[#1D4063] text-white text-center py-3 rounded-full"
-          >
-            Contact Us
-          </Link>
-        </div>
       </div>
     </>
   );
