@@ -45,7 +45,7 @@ export default function Navbar() {
         <Container>
           <div
             className={clsx(
-              "flex flex-col rounded-[40px] md:rounded-full shadow-md transition-all duration-500",
+              "flex flex-col rounded-[28px] md:rounded-full shadow-md transition-all duration-500",
               scrolled
                 ? "bg-white backdrop-blur-md shadow-lg"
                 : "bg-white/80 backdrop-blur-md"
@@ -107,7 +107,7 @@ export default function Navbar() {
             <div
               className={clsx(
                 "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-                open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                open ? "max-h-96 rounded-b-[20px] opacity-100" : "max-h-0 opacity-0"
               )}
             >
               <div className="px-4 pb-4 border-t border-gray-200">
