@@ -80,7 +80,7 @@ export default function Vehicles() {
         </div>
 
         {/* CARDS */}
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="hidden md:grid gap-10 md:grid-cols-3">
           {visibleItems.map((item) => (
             <div key={item._id}>
               {/* IMAGE */}
@@ -115,6 +115,46 @@ export default function Vehicles() {
             </div>
           ))}
         </div>
+
+          {/* ✅ MOBILE VIEW */}
+                <div className="md:hidden text-center">
+                  {vehicles.length > 0 && (
+                    <div>
+                      <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
+                        {vehicles[index]?.image && (
+                          <Image
+                            src={urlFor(vehicles[index].image).url()}
+                            alt={vehicles[index].title}
+                            fill
+                            className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
+                          />
+                        )}
+                      </div>
+        
+                      <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3">
+                        {vehicles[index]?.title}
+                      </h3>
+        
+                      <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
+                        {vehicles[index]?.description}
+                      </p>
+        
+                      {/* DOTS */}
+                      <div className="flex justify-center gap-2 mt-6">
+                        {vehicles.map((_, i) => (
+                          <div
+                            key={i}
+                            className={`h-2 rounded-full transition-all ${
+                              i === index
+                                ? "w-4 bg-blue-900"
+                                : "w-2 bg-gray-300"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
 
         {/* NAVIGATION */}
         <div className="mt-10 flex justify-center gap-4">

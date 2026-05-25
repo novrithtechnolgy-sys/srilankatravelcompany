@@ -81,11 +81,11 @@ export default function Testimonials() {
         <div className="relative z-10">
 
           {/* TOP */}
-          <span className="text-[12px] tracking-widest bg-gray-200 px-4 py-1 rounded-full inline-block mb-4">
+          <span className="text-[10px] md:text-[14px] tracking-widest bg-gray-200 px-4 py-1 rounded-full inline-block mb-4">
             TESTIMONIALS
           </span>
 
-          <h2 className="text-section text-[32px] md:text-[64px] font-semibold mb-10 md:mb-16">
+          <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-8 md:mb-16">
             <span className="text-orange-500">What Our</span>{" "}
             <span className="text-[#1D4063]">Travelers Say</span>
           </h2>
@@ -103,12 +103,12 @@ export default function Testimonials() {
                 </div>
 
                 {/* Text */}
-                <p className="text-body text-gray-700 text-[16px] leading-relaxed mb-6">
+                <p className="text-body text-gray-700 text-[16px] leading-relaxed mb-4">
                   {testimonials[index]?.text}
                 </p>
 
                 {/* User */}
-                <div className="flex items-center gap-3 mb-6 ">
+                <div className="flex items-center gap-3">
                   {testimonials[index]?.avatar && (
                     <Image
                       src={urlFor(testimonials[index].avatar).url()}
@@ -130,7 +130,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* DOTS */}
-                <div className="flex justify-center gap-2 mt-4">
+                <div className="flex justify-center gap-2 mt-8">
                   {testimonials.map((_, i) => (
                     <div
                       key={i}
@@ -146,7 +146,7 @@ export default function Testimonials() {
             )}
           </div>
                           {/* ARROWS */}
-            <div className="md:hidden flex justify-center gap-4 mt-12">
+            <div className="md:hidden flex justify-center gap-4 md:gap-8 mt-10">
               <button
                 onClick={prev}
                 disabled={testimonials.length <= visible}
@@ -214,7 +214,7 @@ export default function Testimonials() {
             </div>
 
             {/* NAV */}
-            <div className="flex justify-center gap-4 mt-12">
+            <div className="flex justify-center gap-4 md:gap-8 mt-10">
               <button
                 onClick={prev}
                 disabled={testimonials.length <= visible}

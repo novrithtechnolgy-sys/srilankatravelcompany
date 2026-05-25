@@ -103,7 +103,7 @@ export default function GuidesSection() {
           </div>
 
           {/* GUIDES */}
-          <div className="grid gap-12 md:grid-cols-3">
+          <div className="hidden md:grid gap-8 grid-cols-1 md:grid-cols-3">
             {visibleItems.map((guide) => (
               <div key={guide._id}>
                 {/* IMAGE */}
@@ -133,6 +133,46 @@ export default function GuidesSection() {
               </div>
             ))}
           </div>
+
+          {/* ✅ MOBILE VIEW */}
+                  <div className="md:hidden text-center">
+                    {guides.length > 0 && (
+                      <div>
+                        <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
+                          {guides[index]?.image && (
+                            <Image
+                              src={urlFor(guides[index].image).url()}
+                              alt={guides[index].name}
+                              fill
+                              className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
+                            />
+                          )}
+                        </div>
+          
+                        <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3">
+                          {guides[index]?.name}
+                        </h3>
+          
+                        <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
+                          {guides[index]?.bio}
+                        </p>
+          
+                        {/* DOTS */}
+                        <div className="flex justify-center gap-2 mt-6">
+                          {guides.map((_, i) => (
+                            <div
+                              key={i}
+                              className={`h-2 rounded-full transition-all ${
+                                i === index
+                                  ? "w-4 bg-blue-900"
+                                  : "w-2 bg-gray-300"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
 
           {/* NAVIGATION */}
           <div className="mt-14 flex justify-center gap-4">

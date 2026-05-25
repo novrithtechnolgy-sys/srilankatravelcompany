@@ -40,7 +40,7 @@ export default function HeroBanner({
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         
-        <h1 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-2 md:mb-6">
+        <h1 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
           {highlight && (
             <span className="text-orange-600">{highlight} </span>
           )}
@@ -48,7 +48,7 @@ export default function HeroBanner({
         </h1>
 
         {subtitle && (
-          <p className="mt-4 text-body text-gray-700 text-[14px] md:text-[18px] max-w-xl mb-8 md:mb-12">
+          <p className="mt-4 text-body text-gray-700 text-[14px] md:text-[18px] max-w-xl mb-8 md:mb-16">
             {subtitle}
           </p>
         )}

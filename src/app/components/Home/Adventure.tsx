@@ -203,7 +203,7 @@ export default function AdventureCarousel() {
             <p className="text-body text-[16px] md:text-[18px] text-gray-600">{active.description}</p>
 
             {/* DOTS */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-8">
               {adventures.map((_, i) => (
                 <button
                   key={i}

@@ -34,7 +34,7 @@ export default function Hero() {
                 of the Teardrop Island.
               </h1>
 
-            <p className="md:hidden text-white/90 text-body text-[14px] md:text-[16px] xl:text-[18px] text-center w-full md:max-w-md ml-auto">
+            <p className="md:hidden text-white/90 mt-4 text-body text-[14px] md:text-[16px] xl:text-[18px] text-center w-full md:max-w-md ml-auto">
                 Bold adventures, hidden gems, and authentic local vibes await.
                 From epic day escapes to your own private tropical sanctuary,
                 every moment is crafted for discovery, relaxation, and unforgettable experiences.

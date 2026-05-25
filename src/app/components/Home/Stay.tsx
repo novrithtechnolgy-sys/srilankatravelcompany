@@ -64,7 +64,7 @@ export default function Stay() {
         <span className="text-[#1D4063]">You’re Celebrated</span>
       </h2>
 
-      <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-12 md:mb-16">
+      <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-8 md:mb-16">
         We’ve partnered with the finest boutiques, villas, and eco-lodges across the island.
       </p>
 
@@ -74,7 +74,7 @@ export default function Stay() {
         <div className="hidden md:grid md:grid-cols-3 gap-8 text-left">
           {visibleItems.map((item) => (
             <div key={item._id}>
-              <div className="relative h-[360px] rounded-[24px] overflow-hidden mb-4">
+              <div className="relative h-[360px] rounded-[24px] overflow-hidden mb-6">
                 {item.image && (
                   <Image
                     src={urlFor(item.image).url()}
@@ -85,7 +85,7 @@ export default function Stay() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1D4063] font-semibold mb-2">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1D4063] font-semibold mb-4">
                 {item.title}
               </h3>
 
@@ -111,7 +111,7 @@ export default function Stay() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[22px] text-[#1D4063] font-semibold mb-3">
+              <h3 className="text-body-header text-[22px] text-[#1D4063] font-semibold mb-4">
                 {stays[index]?.title}
               </h3>
 
@@ -120,7 +120,7 @@ export default function Stay() {
               </p>
 
               {/* DOTS */}
-              <div className="flex justify-center gap-2 mt-6">
+              <div className="flex justify-center gap-2 mt-8">
                 {stays.map((_, i) => (
                   <div
                     key={i}
@@ -137,7 +137,7 @@ export default function Stay() {
         </div>
 
         {/* ✅ NAV BUTTONS (desktop only) */}
-        <div className="flex justify-center gap-4 mt-10">
+        <div className="flex justify-center gap-4 md:gap-8 mt-10">
           <button
             onClick={prev}
             className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063]"

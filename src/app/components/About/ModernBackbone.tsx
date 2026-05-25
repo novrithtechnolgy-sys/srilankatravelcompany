@@ -29,12 +29,12 @@ export default function ModernBackbone() {
       <Container>
 
         {/* Label */}
-        <span className="inline-block text-[12px] tracking-widest bg-gray-200 px-4 py-1 rounded-full mb-4">
+        <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 px-4 py-1 rounded-full mb-4">
           POWERED BY
         </span>
 
         {/* Title */}
-        <h2 className="text-section text-[32px] md:text-[48px] xl:text-[64px] font-semibold leading-tight mb-6">
+        <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
           <span className="text-orange-500">The Modern</span>{" "}
           <span className="text-[#1D4063]">Backbone</span>
         </h2>
@@ -45,7 +45,7 @@ export default function ModernBackbone() {
         </p>
 
         {/* Logo */}
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-4">
           <Image
             src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777352693/e09518547c34537b19b590d2da0995e81035c22d_kxkxtt.png" // replace with your logo
             alt="Digital Escapes"

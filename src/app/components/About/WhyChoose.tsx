@@ -44,7 +44,7 @@ export default function WhyChoose() {
         </span>
 
         {/* Title */}
-        <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-bold mb-6">
+        <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-bold mb-4 md:mb-6">
           <span className="text-orange-500">The Specialist</span>{" "}
           <span className="text-[#1D4063]">Advantage</span>
         </h2>
@@ -54,7 +54,7 @@ export default function WhyChoose() {
         </p>
 
         {/* Cards */}
-        <div className="grid gap-4 md:gap-6 md:grid-cols-3">
+        <div className="grid gap-4 md:gap-8 md:grid-cols-3">
 
           {features.map((item, i) => {
             const Icon = item.icon;

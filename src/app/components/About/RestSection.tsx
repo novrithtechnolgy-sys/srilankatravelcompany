@@ -12,11 +12,11 @@ export default function RestSection() {
           {/* LEFT CONTENT */}
           <div className="text-center md:text-left">
 
-            <span className="inline-block text-[12px] tracking-widest bg-gray-200 px-4 py-1 rounded-full mb-4">
+            <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 px-4 py-1 rounded-full mb-4">
               STAYS
             </span>
 
-            <h2 className="text-section text-[32px] md:text-[48px] xl:text-[64px] font-semibold leading-tight mb-6">
+            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
               <span className="text-orange-500">Rest In The</span><br />
               <span className="text-[#1D4063]">Finest Curated Stays</span>
             </h2>
@@ -27,7 +27,7 @@ export default function RestSection() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative h-[350px] md:h-[500px] rounded-b-[24px] md:rounded-r-[24px] overflow-hidden">
+          <div className="relative h-[300px] md:h-[500px] rounded-b-[24px] md:rounded-r-[24px] overflow-hidden">
 
             <Image
               src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777352401/208bb3164c040ef306a0874503fa5da68c734180_1_ncssj7.jpg" // replace with your image

@@ -6,11 +6,11 @@ export default function VisionMission() {
     <section className="py-10 md:py-20 bg-white relative">
       <Container>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center text-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-20 items-center text-center">
 
           {/* LEFT - VISION */}
           <div>
-            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-6">
+            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-4 md:mb-6">
               <span className="text-orange-500">Our</span>{" "}
               <span className="text-[#1D4063]">Vision</span>
             </h2>
@@ -25,7 +25,7 @@ export default function VisionMission() {
 
           {/* RIGHT - MISSION */}
           <div>
-            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-6">
+            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-4 md:mb-6">
               <span className="text-orange-500">Our</span>{" "}
               <span className="text-[#1D4063]">Mission</span>
             </h2>
