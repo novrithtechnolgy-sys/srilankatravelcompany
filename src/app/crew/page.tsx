@@ -15,14 +15,14 @@ export default function Crew() {
                 subtitle="The local storytellers who guide your journey and the premium machines that get you there safely. Experience Sri Lanka with the island's most dedicated team."
             />
             <GuidesSection/>
-            <Vehicles/>
             <PremiumComfort/>
+            <Vehicles/> 
             <HeroBanner
                 title="Ready for"
                 highlight="Your Best Day Ever?"
                 subtitle="Your next great story is just a sunrise away. Let’s make it legendary."
                 buttonText="Book Your Adventure"
-                backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777353305/141a7d2d935dc9fb8398d47d7523c786acd79366_1_krskdg.webp"
+                backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1779688641/51d028302fe705a5306dfee6b4eea1e410bd7ce6_um4y5k.webp"
             />
         </>
     )

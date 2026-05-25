@@ -1,79 +1,137 @@
+"use client";
+
 import Image from "next/image";
 import Container from "../Container";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
-export default async function Vehicles() {
+type Vehicle = {
+  _id: string;
+  title: string;
+  tag: string;
+  passengers: string;
+  description: string;
+  image: any;
+};
 
-  const vehicles = await client.fetch(`
-    *[_type=="vehicle"]{
-      _id,
-      title,
-      tag,
-      passengers,
-      description,
-      image
-    }
-  `);
+export default function Vehicles() {
+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await client.fetch(`
+        *[_type=="vehicle"]{
+          _id,
+          title,
+          tag,
+          passengers,
+          description,
+          image
+        }
+      `);
+
+      setVehicles(data);
+    };
+
+    fetchData();
+  }, []);
+
+  // visible items
+  const visibleItems = vehicles.slice(index, index + 3);
+
+  // next
+  const next = () => {
+    if (vehicles.length === 0) return;
+
+    setIndex((prev) =>
+      prev + 1 >= vehicles.length ? 0 : prev + 1
+    );
+  };
+
+  // prev
+  const prev = () => {
+    if (vehicles.length === 0) return;
+
+    setIndex((prev) =>
+      prev === 0 ? vehicles.length - 1 : prev - 1
+    );
+  };
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="pt-10 md:pt-20">
       <Container>
-
         {/* HEADER */}
-        <div className="text-center max-w-5xl mx-auto mb-20">
-            <span className="inline-block text-[12px] tracking-[4px] bg-gray-200 text-gray-700 px-5 py-2 rounded-full mb-6 uppercase">
-              Vehicles
-            </span>
+        <div className="mx-auto mb-20 max-w-5xl text-center">
+          <span className="mb-6 inline-block rounded-full bg-gray-200 px-5 py-2 text-[12px] uppercase tracking-[4px] text-gray-700">
+            Vehicles
+          </span>
 
-            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-6">
-              <span className="text-orange-500">The</span>{" "}<span className="text-[#1D4063]">Vehicles</span>
-            </h2>
+          <h2 className="text-section mb-6 text-[34px] font-semibold md:text-[40px] xl:text-[64px]">
+            <span className="text-orange-500">The</span>{" "}
+            <span className="text-[#1D4063]">Vehicles</span>
+          </h2>
 
-            <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed max-w-md mx-auto">
-              We have the best vehicles for your adventure.
-            </p>
+          <p className="text-body mx-auto max-w-md text-[16px] leading-relaxed text-gray-600 md:text-[18px]">
+            We have the best vehicles for your adventure.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {vehicles?.map((vehicle: any) => (
-            <div key={vehicle._id}>
-
+        {/* CARDS */}
+        <div className="grid gap-10 md:grid-cols-3">
+          {visibleItems.map((item) => (
+            <div key={item._id}>
               {/* IMAGE */}
-              <div className="relative h-[420px] rounded-[34px] overflow-hidden mb-8">
-
+              <div className="relative mb-8 h-[420px] overflow-hidden rounded-[34px]">
                 <Image
-                  src={urlFor(vehicle.image).url()}
-                  alt={vehicle.title}
+                  src={urlFor(item.image).url()}
+                  alt={item.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                 />
 
-                {/* TOP TAG */}
-                <div className="absolute top-5 left-5 bg-white/90 backdrop-blur-sm px-5 py-2 rounded-full text-[15px] font-medium text-black">
-                  {vehicle.tag}
+                {/* TAG */}
+                <div className="absolute top-5 left-5 rounded-full bg-white/90 px-5 py-2 text-[15px] font-medium text-black backdrop-blur-sm">
+                  {item.tag}
                 </div>
               </div>
 
               {/* TITLE */}
-              <h3 className="text-body-header text-[20px] md:text-[24px] font-semibold text-[#1D4063] mb-4">
-                {vehicle.title}
+              <h3 className="text-body-header mb-4 text-[20px] font-semibold text-[#1D4063] md:text-[24px]">
+                {item.title}
               </h3>
 
               {/* PASSENGERS */}
-              <p className="uppercase tracking-[2px] text-[#C86421] text-[12px] font-semibold mb-6">
-                {vehicle.passengers}
+              <p className="mb-6 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
+                {item.passengers}
               </p>
 
               {/* DESCRIPTION */}
-              <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
-                {vehicle.description}
+              <p className="text-body text-[16px] leading-relaxed text-gray-600 md:text-[18px]">
+                {item.description}
               </p>
-
             </div>
           ))}
         </div>
 
+        {/* NAVIGATION */}
+        <div className="mt-10 flex justify-center gap-4">
+          <button
+            onClick={prev}
+            className="flex h-10 w-10 items-center justify-center rounded-full border"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          <button
+            onClick={next}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-900 text-white"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
       </Container>
     </section>
   );

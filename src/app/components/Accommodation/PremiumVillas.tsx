@@ -80,7 +80,7 @@ export default function PremiumVillas() {
                     src={urlFor(item.image).url()}
                     alt={item.title}
                     fill
-                    className="object-cover"
+                    className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                   />
                 )}
               </div>
@@ -106,7 +106,7 @@ export default function PremiumVillas() {
                     src={urlFor(stays[index].image).url()}
                     alt={stays[index].title}
                     fill
-                    className="object-cover"
+                    className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                   />
                 )}
               </div>
