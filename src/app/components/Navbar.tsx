@@ -38,14 +38,14 @@ export default function Navbar() {
         className={clsx(
           "w-full z-50",
           scrolled
-            ? "fixed top-0 md:top-4 left-0"
+            ? "fixed top-4 md:top-4 left-0"
             : "absolute top-8 md:top-14 left-1/2 -translate-x-1/2 w-[95%] px-2"
         )}
       >
         <Container>
           <div
             className={clsx(
-              "flex flex-col rounded-full shadow-md transition-all duration-500",
+              "flex flex-col rounded-[40px] md:rounded-full shadow-md transition-all duration-500",
               scrolled
                 ? "bg-white backdrop-blur-md shadow-lg"
                 : "bg-white/80 backdrop-blur-md"

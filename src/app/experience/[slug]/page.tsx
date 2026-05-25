@@ -44,7 +44,7 @@ export default async function Page({ params }: PageProps) {
             gallery={data.gallery}
         />
         <BookingForm slug={slug} />
-        <StayBeforeJourney/>
+        {/* <StayBeforeJourney/> */}
         <HeroBanner
           title="Have Questions?"
           highlight="Still"
