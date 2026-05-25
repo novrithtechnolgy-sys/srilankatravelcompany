@@ -62,7 +62,7 @@ export default function JourneySection({
         </div>
 
         {/* DETAILS */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-40 text-left">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20 md:mb-40 text-left">
           <Item icon={<Clock />} label="Duration" value={details.duration} />
           <Item icon={<Timer />} label="Start Time" value={details.startTime} />
           <Item icon={<Car />} label="Pickup" value={details.pickup} />
