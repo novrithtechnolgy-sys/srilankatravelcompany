@@ -16,7 +16,7 @@ const adventures = [
     title: "Cultural Heritage",
     description:
       "Step into the sacred silence of ancient stupas, draped in colorful prayer flags, alive with centuries of devotion.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777742986/5491ab34e53267e9bf48f611c08361662bbd096b_1_ui1jij.jpg",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1779688009/5491ab34e53267e9bf48f611c08361662bbd096b_1_imswja.webp",
   },
   {
     id: 3,
@@ -146,7 +146,7 @@ export default function AdventureCarousel() {
             EXPLORE
           </span>
 
-          <h1 className="text-[34px] md:text-[40px] xl:text-[64px] text-center font-semibold mb-8 md:mb-16">
+          <h1 className="text-section text-[34px] md:text-[40px] xl:text-[64px] text-center font-semibold mb-8 md:mb-16">
             <span className="text-[#C8591A]">Find Your </span>
             <span className="text-[#1D4063]">Perfect Adventure</span>
           </h1>

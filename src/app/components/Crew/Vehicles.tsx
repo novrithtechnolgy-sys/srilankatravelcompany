@@ -40,7 +40,7 @@ export default async function Vehicles() {
             <div key={vehicle._id}>
 
               {/* IMAGE */}
-              <div className="relative h-[310px] rounded-[34px] overflow-hidden mb-8">
+              <div className="relative h-[420px] rounded-[34px] overflow-hidden mb-8">
 
                 <Image
                   src={urlFor(vehicle.image).url()}
