@@ -28,12 +28,12 @@ export default function StayExpiriance() {
           <div className="md:w-3/2 text-center md:text-left order-1 md:order-2">
 
             {/* Tag */}
-            <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+            <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 md:bg-gray-200 text-gray-900 md:text-gray-600 px-4 py-1 rounded-full mb-4 z-80">
               Stay Experience
             </span>
 
             {/* Title */}
-            <h2 className="text-[34px] md:text-[40px] xl:text-[64px] text-section font-semibold leading-tight mb-4">
+            <h2 className="text-[34px] md:text-[40px] xl:text-[64px] text-section font-semibold leading-tight mb-4 md:mb-6">
               <span className="text-orange-500">More Than Just a Bed.</span>{" "}<br/>
               <span className="text-[#1E3355]">An Experience.</span>
             </h2>

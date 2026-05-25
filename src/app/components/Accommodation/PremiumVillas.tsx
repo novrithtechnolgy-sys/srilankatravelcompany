@@ -55,7 +55,7 @@ export default function PremiumVillas() {
   return (
     <section className="py-10 md:py-20 text-center">
       {/* TOP */}
-      <span className="inline-block text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+      <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
         Premium Villas
       </span>
 
@@ -64,7 +64,7 @@ export default function PremiumVillas() {
         <span className="text-[#1E3355]">of Private Luxury</span>
       </h2>
 
-      <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-12 md:mb-16">
+      <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-8 md:mb-16">
         These exclusive properties are managed and marketed by Digital Escapes to ensure a seamless and high-end experience for every guest.
       </p>
 
@@ -74,7 +74,7 @@ export default function PremiumVillas() {
         <div className="hidden md:grid md:grid-cols-3 gap-8 text-left">
           {visibleItems.map((item) => (
             <div key={item._id}>
-              <div className="relative h-[360px] rounded-[24px] overflow-hidden mb-4">
+              <div className="relative h-[360px] rounded-[24px] overflow-hidden mb-6">
                 {item.image && (
                   <Image
                     src={urlFor(item.image).url()}
@@ -85,7 +85,7 @@ export default function PremiumVillas() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-2">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-4">
                 {item.title}
               </h3>
 
@@ -120,7 +120,7 @@ export default function PremiumVillas() {
               </p>
 
               {/* DOTS */}
-              <div className="flex justify-center gap-2 mt-6">
+              <div className="flex justify-center gap-2 mt-8">
                 {stays.map((_, i) => (
                   <div
                     key={i}
@@ -137,7 +137,7 @@ export default function PremiumVillas() {
         </div>
 
         {/* ✅ NAV BUTTONS (desktop only) */}
-        <div className="flex justify-center gap-4 mt-10">
+        <div className="flex justify-center gap-4 md:gap-8 mt-10">
           <button
             onClick={prev}
             className="w-10 h-10 flex items-center justify-center rounded-full border"

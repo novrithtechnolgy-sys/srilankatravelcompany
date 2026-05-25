@@ -111,7 +111,7 @@ export default function Stay() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[22px] text-[#1D4063] font-semibold mb-4">
+              <h3 className="text-body-header text-[24px] text-[#1D4063] font-semibold mb-4">
                 {stays[index]?.title}
               </h3>
 

@@ -74,19 +74,19 @@ export default function ExperienceGrid() {
         
 
         {/* CATEGORY SECTIONS */}
-        <div className="space-y-20 ">
+        <div className="space-y-20 md:space-y-40 ">
 
           {Object.entries(groupedData).map(
             ([category, items]) => (
               <div key={category}>
                 <div className="text-center">
-                <span className="inline-block text-[10px] md:text-[14px] tracking-widest  bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+                <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest  bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
                 EXPLORE TOURS
                 </span>
               </div>
                 {/* Category Title */}
                 <div className="mb-8 md:mb-16">
-                <h3 className="text-center text-section text-[32px] md:text-[48px] lg:text-[64px] font-semibold leading-tight">
+                <h3 className="text-center text-section text-[34px] md:text-[40px] lg:text-[64px] font-semibold leading-tight">
                   <span className="text-orange-500">
                     {category.split(" ")[0]}
                   </span>{" "}
@@ -101,7 +101,7 @@ export default function ExperienceGrid() {
                 </div>
 
                 {/* Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                   {items.map((item) => (
                     <div
@@ -109,7 +109,7 @@ export default function ExperienceGrid() {
                       className="group"
                     >
                       {/* IMAGE */}
-                      <div className="relative h-[240px] md:h-[360px] rounded-[24px] overflow-hidden mb-5">
+                      <div className="relative h-[240px] md:h-[360px] rounded-[24px] overflow-hidden mb-6">
                         
                         {item.image && (
                           <Image
@@ -127,19 +127,19 @@ export default function ExperienceGrid() {
                       </div>
 
                       {/* TITLE */}
-                      <h4 className="text-[24px] md:text-[28px] text-[#1E3355] font-serif mb-3">
+                      <h4 className=" text-[24px] md:text-[26px] text-[#1E3355] text-body-header mb-4">
                         {item.title}
                       </h4>
 
                       {/* DESC */}
-                      <p className="text-[15px] md:text-[17px] text-gray-600 leading-relaxed mb-5">
+                      <p className="text-body text-[15px] md:text-[17px] text-gray-600 leading-relaxed mb-4">
                         {item.etc}
                       </p>
 
                       {/* LINK */}
                       <Link
                         href={`/experience/${item.slug.current}`}
-                        className="inline-flex items-center gap-2 text-orange-500 font-medium hover:gap-3 transition-all"
+                        className="text-[12px] md:text-[14px] text-body inline-flex items-center gap-2 text-orange-500 font-medium hover:gap-3 transition-all"
                       >
                         Learn More
                         <span>→</span>

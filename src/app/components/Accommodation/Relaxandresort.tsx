@@ -66,7 +66,7 @@ export default function RelaxAndResort() {
         </div>
       <Container>
       {/* TOP */}
-      <span className="inline-block text-[10px] md:text-[14px] tracking-widest bg-[#1D406333] text-gray-800 px-4 py-1 rounded-full mb-4 z-60">
+      <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4 z-60">
         Relax & Restore
       </span>
 
@@ -91,7 +91,7 @@ export default function RelaxAndResort() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-2">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-4">
                 {item.title}
               </h3>
 
@@ -117,7 +117,7 @@ export default function RelaxAndResort() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3 z-50">
+              <h3 className="text-body-header text-[24px] text-[#1E3355] font-semibold mb-4 z-50">
                 {stays[index]?.title}
               </h3>
 
@@ -126,7 +126,7 @@ export default function RelaxAndResort() {
               </p>
 
               {/* DOTS */}
-              <div className="flex justify-center gap-2 mt-6 z-50">
+              <div className="flex justify-center gap-2 mt-8 z-50">
                 {stays.map((_, i) => (
                   <div
                     key={i}
@@ -143,7 +143,7 @@ export default function RelaxAndResort() {
         </div>
 
         {/* ✅ NAV BUTTONS (desktop only) */}
-        <div className="flex justify-center gap-4 mt-10 z-40">
+        <div className="flex justify-center gap-4 md:gap-8 mt-10 z-40">
           <button
             onClick={prev}
             className="w-10 h-10 flex items-center justify-center rounded-full border z-40"
