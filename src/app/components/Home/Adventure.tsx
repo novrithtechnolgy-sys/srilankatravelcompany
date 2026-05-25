@@ -217,10 +217,10 @@ export default function AdventureCarousel() {
               ))}
             </div>
           </div>
-            <button onClick={() => go(-1)} className="text-3xl absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white transition">
+            <button onClick={() => go(-1)} className="text-[25px] absolute left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white transition">
               ‹
             </button>
-            <button onClick={() => go(1)} className="text-3xl absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white transition">
+            <button onClick={() => go(1)} className="text-[25px] absolute right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white transition">
               ›
             </button>
         </div>
