@@ -17,11 +17,10 @@ export default {
       title: "Category",
       options: {
         list: [
-          { title: "Safari", value: "safari" },
-          { title: "Culture", value: "culture" },
-          { title: "Beach", value: "beach" },
-          { title: "Nature", value: "nature" },
-          { title: "Wellness", value: "wellness" },
+          { title: "Safari", value: "Wildlife and Safaris" },
+          { title: "Culture", value: "Heritage and Culture" },
+          { title: "Beach", value: "Beach and Wellness" },
+          { title: "Nature", value: "Hill Country Scenic" },
         ],
       },
     },

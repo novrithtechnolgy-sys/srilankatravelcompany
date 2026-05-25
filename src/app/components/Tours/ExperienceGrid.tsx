@@ -18,17 +18,16 @@ type Experience = {
 
 export default function ExperienceGrid() {
   const [data, setData] = useState<Experience[]>([]);
-  const [category, setCategory] = useState("all");
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await client.fetch(`
-        *[_type == "experience"]{
+        *[_type == "experience"] | order(category asc){
           _id,
           title,
           slug,
           category,
-          "image": heroImage.asset._ref,
+          "image": heroImage,
           "etc": etc,
         }
       `);
@@ -39,85 +38,122 @@ export default function ExperienceGrid() {
     fetchData();
   }, []);
 
-  const filtered =
-    category === "all"
-      ? data
-      : data.filter((item) => item.category === category);
+  // Group by category
+  const groupedData = data.reduce(
+    (acc: Record<string, Experience[]>, item) => {
+      const key = item.category || "Other";
+
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+
+      acc[key].push(item);
+
+      return acc;
+    },
+    {}
+  );
 
   return (
-    <section className="py-20">
+    <section className="py-10 md:py-20 bg-white">
       <Container>
+
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row items-center justify-center text-center mb-10 gap-6 ">
-          <div>
-            <span className="inline-block text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
-              EXPLORE TOURS
+        
+          
+
+
+          {/* <h2 className="text-[32px] md:text-[48px] lg:text-[64px] font-serif leading-tight">
+            <span className="text-orange-500">
+              Choose Your
+            </span>{" "}
+            <span className="text-[#1E3355]">
+              Experience
             </span>
+          </h2> */}
+        
 
-            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
-              <span className="text-orange-500">Choose Your</span>{" "}
-              <span className="text-blue-900">Experience</span>
-            </h2>
-          </div>
-        </div>
-                  {/* FILTER */}
-          <div className="flex flex-col md:flex-row items-center justify-end mb-10 gap-4">
-            <div>
-            <p className="text-body text-gray-600 text-[16px] md:text-[18px] mb-2">
-              Select a Tour Experience
-            </p>
+        {/* CATEGORY SECTIONS */}
+        <div className="space-y-20 ">
 
-            <select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="border-b border-gray-400 bg-transparent outline-none py-2 w-[220px]"
-            >
-              <option value="all">All</option>
-              <option value="safari">Safari</option>
-              <option value="culture">Culture</option>
-              <option value="beach">Beach</option>
-              <option value="nature">Nature</option>
-              <option value="wellness">Wellness</option>
-            </select>
-          </div>
-          </div>
-
-        {/* GRID */}
-        <div className="grid md:grid-cols-3 gap-10">
-          {filtered.map((item) => (
-            <div key={item._id} className="group">
-              {/* IMAGE */}
-              <div className="relative h-[220px] md:h-[360px] rounded-[20px] overflow-hidden mb-4">
-                {item.image && (
-                  <Image
-                    src={urlFor(item.image).width(600).url()}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition duration-500"
-                  />
-                )}
+          {Object.entries(groupedData).map(
+            ([category, items]) => (
+              <div key={category}>
+                <div className="text-center">
+                <span className="inline-block text-[10px] md:text-[14px] tracking-widest  bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+                EXPLORE TOURS
+                </span>
               </div>
+                {/* Category Title */}
+                <div className="mb-8 md:mb-16">
+                <h3 className="text-center text-section text-[32px] md:text-[48px] lg:text-[64px] font-semibold leading-tight">
+                  <span className="text-orange-500">
+                    {category.split(" ")[0]}
+                  </span>{" "}
+                  
+                  <span className="text-[#1E3355]">
+                    {category.split(" ").slice(1).join(" ")}
+                  </span>
+                </h3>
+                
 
-              {/* TITLE */}
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-2">
-                {item.title}
-              </h3>
+                  {/* <div className="w-20 h-[2px] bg-orange-500 mt-3" /> */}
+                </div>
 
-              {/* DESC */}
-              <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-3">
-                {item.etc}
-              </p>
+                {/* Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
 
-              {/* LINK */}
-              <Link
-                href={`/experience/${item.slug.current}`}
-                className="text-orange-500 text-sm font-medium flex items-center gap-1"
-              >
-                Learn More <span>▶</span>
-              </Link>
-            </div>
-          ))}
+                  {items.map((item) => (
+                    <div
+                      key={item._id}
+                      className="group"
+                    >
+                      {/* IMAGE */}
+                      <div className="relative h-[240px] md:h-[360px] rounded-[24px] overflow-hidden mb-5">
+                        
+                        {item.image && (
+                          <Image
+                            src={urlFor(item.image)
+                              .width(800)
+                              .url()}
+                            alt={item.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition duration-500"
+                          />
+                        )}
+
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                      </div>
+
+                      {/* TITLE */}
+                      <h4 className="text-[24px] md:text-[28px] text-[#1E3355] font-serif mb-3">
+                        {item.title}
+                      </h4>
+
+                      {/* DESC */}
+                      <p className="text-[15px] md:text-[17px] text-gray-600 leading-relaxed mb-5">
+                        {item.etc}
+                      </p>
+
+                      {/* LINK */}
+                      <Link
+                        href={`/experience/${item.slug.current}`}
+                        className="inline-flex items-center gap-2 text-orange-500 font-medium hover:gap-3 transition-all"
+                      >
+                        Learn More
+                        <span>→</span>
+                      </Link>
+                    </div>
+                  ))}
+
+                </div>
+              </div>
+            )
+          )}
+
         </div>
+
       </Container>
     </section>
   );

@@ -54,10 +54,10 @@ export default function RelaxAndResort() {
 
   return (
     <section className="pt-10 md:pt-20 text-center relative overflow-hidden">
-        <div className="pointer-events-none absolute top-0 h-42 w-full bg-gradient-to-b from-white to-transparent z-20" />
-        <div className="pointer-events-none absolute bottom-0 h-42 w-full bg-gradient-to-t from-white to-transparent z-20" />
+        <div className="pointer-events-none absolute top-0 h-42 w-full bg-gradient-to-b from-white to-transparent z-0" />
+        <div className="pointer-events-none absolute bottom-0 h-42 w-full bg-gradient-to-t from-white to-transparent z-0" />
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-[-10]">
             <img
             src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777352788/7b8ca57d715c334a145db1aaa2a0b901bd10dd68_fy4nmf.jpg" // replace with your image
             className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ export default function RelaxAndResort() {
 
       <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-8 md:mb-16">
         <span className="text-orange-500">Rejuvenate</span>{" "}
-        <span className="text-blue-900">and Rediscover</span>
+        <span className="text-[#1E3355]">and Rediscover</span>
       </h2>
     
 
@@ -117,16 +117,16 @@ export default function RelaxAndResort() {
                 )}
               </div>
 
-              <h3 className="text-[22px] text-blue-900 font-semibold mb-3">
+              <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3 z-50">
                 {stays[index]?.title}
               </h3>
 
-              <p className="text-[16px] text-gray-600 leading-relaxed px-2">
+              <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2 z-50">
                 {stays[index]?.desc}
               </p>
 
               {/* DOTS */}
-              <div className="flex justify-center gap-2 mt-6">
+              <div className="flex justify-center gap-2 mt-6 z-50">
                 {stays.map((_, i) => (
                   <div
                     key={i}

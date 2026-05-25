@@ -12,7 +12,7 @@ export default function VisionMission() {
           <div>
             <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-6">
               <span className="text-orange-500">Our</span>{" "}
-              <span className="text-blue-900">Vision</span>
+              <span className="text-[#1D4063]">Vision</span>
             </h2>
 
             <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed max-w-md mx-auto">
@@ -21,13 +21,13 @@ export default function VisionMission() {
           </div>
 
           {/* CENTER DIVIDER */}
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 h-32 w-[1px] bg-gray-900 z-50" />
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 h-32 w-[1px] bg-gray-900 z-30" />
 
           {/* RIGHT - MISSION */}
           <div>
             <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-6">
               <span className="text-orange-500">Our</span>{" "}
-              <span className="text-blue-900">Mission</span>
+              <span className="text-[#1D4063]">Mission</span>
             </h2>
 
             <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed max-w-md mx-auto">

@@ -46,7 +46,7 @@ export default function WhyChoose() {
         {/* Title */}
         <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-bold mb-6">
           <span className="text-orange-500">The Specialist</span>{" "}
-          <span className="text-blue-900">Advantage</span>
+          <span className="text-[#1D4063]">Advantage</span>
         </h2>
 
         <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed max-w-3xl mx-auto mb-8 md:mb-16">
@@ -65,12 +65,12 @@ export default function WhyChoose() {
                 className="bg-white/90 backdrop-blur-md rounded-[24px] p-4 md:p-8 shadow-md hover:scale-105 transition-transform duration-300"
               >
                 {/* Icon */}
-                <div className="md:w-14 h-10 w-10 md:h-14 mx-auto mb-5 flex items-center justify-center rounded-full bg-blue-900 text-white">
+                <div className="md:w-14 h-10 w-10 md:h-14 mx-auto mb-5 flex items-center justify-center rounded-full bg-[#1D4063] text-white">
                   <Icon size={22} />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-body-header text-[24px] md:text-[26px] text-center font-semibold text-blue-900 mb-3">
+                <h3 className="text-body-header text-[24px] md:text-[26px] text-center font-semibold text-[#1D4063] mb-3">
                   {item.title}
                 </h3>
 

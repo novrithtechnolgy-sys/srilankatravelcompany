@@ -57,7 +57,7 @@ export default function StayBeforeJourney() {
 
       <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
         <span className="text-orange-500">Where to Stay</span>{" "}
-        <span className="text-blue-900">Before Your Journey</span>
+        <span className="text-[#1E3355]">Before Your Journey</span>
       </h2>
 
       <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-12 md:mb-16">
@@ -79,7 +79,7 @@ export default function StayBeforeJourney() {
                 />
               </div>
 
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-2">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1E3355] font-semibold mb-2">
                 {item.title}
               </h3>
 
@@ -105,7 +105,7 @@ export default function StayBeforeJourney() {
                         )}
                     </div>
         
-                    <h3 className="text-[22px] text-blue-900 font-semibold mb-3">
+                    <h3 className="text-[22px] text-[#1E3355] font-semibold mb-3">
                         {stays[index]?.title}
                     </h3>
         

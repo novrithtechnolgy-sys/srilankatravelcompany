@@ -53,7 +53,7 @@ export default function JourneySection({
 
           <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
             <span className="text-orange-500">{title1}</span>{" "}
-            <span className="text-blue-900">{title2}</span>
+            <span className="text-[#1E3355]">{title2}</span>
           </h2>
 
           <p className="text-body text-gray-600 max-w-6xl mx-auto mt-4 text-[15px] md:text-[17px] leading-relaxed">

@@ -44,7 +44,7 @@ export default function TransfersSection() {
 
       <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
         <span className="text-orange-500">Airport Pickups</span>{" "}
-        <span className="text-blue-900">and Transfers</span>
+        <span className="text-[#1E3355]">and Transfers</span>
       </h2>
 
       <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-12 md:mb-16">
@@ -67,7 +67,7 @@ export default function TransfersSection() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-2">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1E3355] font-semibold mb-2">
                 {item.title}
               </h3>
 

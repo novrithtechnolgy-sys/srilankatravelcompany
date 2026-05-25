@@ -33,9 +33,9 @@ export default function AboutStory() {
             </span>
 
             {/* Title */}
-            <h2 className="text-[34px] md:text-[40px] xl:text-[64px] text-section font-semibold leading-tight mb-4">
+            <h2 className="text-[34px] md:text-[40px] xl:text-[64px] text-section font-semibold leading-tight mb-4 md:mb-6">
               <span className="text-orange-500">Authentically Local.</span>{" "} <br/>
-              <span className="text-blue-900">Unapologetically Vibrant.</span>
+              <span className="text-[#1D4063]">Unapologetically Vibrant.</span>
             </h2>
 
             {/* Paragraph */}

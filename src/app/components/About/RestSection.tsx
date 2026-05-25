@@ -18,7 +18,7 @@ export default function RestSection() {
 
             <h2 className="text-section text-[32px] md:text-[48px] xl:text-[64px] font-semibold leading-tight mb-6">
               <span className="text-orange-500">Rest In The</span><br />
-              <span className="text-blue-900">Finest Curated Stays</span>
+              <span className="text-[#1D4063]">Finest Curated Stays</span>
             </h2>
 
             <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed max-w-xl">

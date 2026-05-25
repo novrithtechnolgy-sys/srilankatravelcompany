@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "../Container";
 
 const adventures = [
@@ -9,7 +9,7 @@ const adventures = [
     title: "Wildlife Safari",
     description:
       "Track majestic elephants through misty jungles on an unforgettable jeep safari at dawn, guided by expert naturalists.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777743087/0bd27a780ad23f3f1deb9c4113170bdc617b6c5b_asgcei.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1778238008/Minneriya-National-Park-scaled_phbyrv.jpg",
   },
   {
     id: 2,
@@ -43,8 +43,6 @@ const adventures = [
 
 type PosKey = "center" | "left1" | "right1" | "left2" | "right2" | "hidden";
 
-// Dynamic transform/position values must stay as inline styles —
-// Tailwind cannot generate arbitrary calculated values at runtime.
 const posStyles: Record<PosKey, React.CSSProperties> = {
   center: {
     transform: "translateX(-50%) translateY(-50%) scale(1)",
@@ -53,7 +51,6 @@ const posStyles: Record<PosKey, React.CSSProperties> = {
     opacity: 1,
     width: "380px",
     height: "450px",
-
   },
   left1: {
     transform: "translateX(-50%) translateY(-50%) scale(0.82)",
@@ -73,7 +70,6 @@ const posStyles: Record<PosKey, React.CSSProperties> = {
     width: "360px",
     height: "440px",
     filter: "brightness(0.88)",
-
   },
   left2: {
     transform: "translateX(-50%) translateY(-50%) scale(0.65)",
@@ -83,7 +79,6 @@ const posStyles: Record<PosKey, React.CSSProperties> = {
     width: "300px",
     height: "380px",
     filter: "brightness(0.7)",
-
   },
   right2: {
     transform: "translateX(-50%) translateY(-50%) scale(0.65)",
@@ -93,7 +88,6 @@ const posStyles: Record<PosKey, React.CSSProperties> = {
     width: "300px",
     height: "380px",
     filter: "brightness(0.7)",
-
   },
   hidden: {
     transform: "translateX(-50%) translateY(-50%)",
@@ -108,6 +102,7 @@ const posStyles: Record<PosKey, React.CSSProperties> = {
 export default function AdventureCarousel() {
   const [activeIndex, setActiveIndex] = useState(2);
   const [animating, setAnimating] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   const getPosition = (index: number): PosKey => {
     const diff = index - activeIndex;
@@ -126,161 +121,104 @@ export default function AdventureCarousel() {
     setTimeout(() => setAnimating(false), 450);
   };
 
+  // ✅ AUTOPLAY
+  useEffect(() => {
+    if (paused) return;
+
+    const interval = setInterval(() => {
+      if (!animating) go(1);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [paused, animating, activeIndex]);
+
   const active = adventures[activeIndex];
 
   return (
-    <>
-      <div
-        className="relative md:min-h-screen flex flex-col items-center justify-center py-10 md:py-20 overflow-hidden"
-      >
+    <div
+      className="relative md:min-h-screen flex flex-col items-center justify-center py-10 md:py-20 overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <Container>
-      <div className="flex flex-col items-center justify-center">
-        {/* EXPLORE pill */}
-         <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
-          EXPLORE
+        <div className="flex flex-col items-center justify-center">
+          <span className="inline-block  text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+            EXPLORE
           </span>
 
-        {/* Heading */}
-        <h1
-          className="text-[34px] md:text-[40px] xl:text-[64px] text-center md:text-left text-section font-semibold leading-tight mb-8 md:mb-16"
-        >
-          <span className="text-[#C8591A]">Find Your </span>
-          <span className="text-[#1E3355]">Perfect Adventure</span>
-        </h1>
+          <h1 className="text-[34px] md:text-[40px] xl:text-[64px] text-center font-semibold mb-8 md:mb-16">
+            <span className="text-[#C8591A]">Find Your </span>
+            <span className="text-[#1D4063]">Perfect Adventure</span>
+          </h1>
 
-        <div className="pointer-events-none md:absolute left-0 2xl:left-20 top-0 h-full w-64 bg-gradient-to-r from-white to-transparent z-20" />
-        <div className="pointer-events-none md:absolute right-0 2xl:right-20 top-0 h-full w-64 bg-gradient-to-l from-white to-transparent z-20" />
+          {/* DESKTOP */}
+          <div className="hidden md:block relative w-full h-[420px] flex items-center justify-center">
+            {adventures.map((adv, i) => {
+              const pos = getPosition(i);
+              return (
+                <div
+                  key={adv.id}
+                  onClick={() => {
+                    if (pos !== "center") {
+                      go(pos.includes("right") ? 1 : -1);
+                    }
+                  }}
+                  className="absolute top-1/2 rounded-3xl overflow-hidden"
+                  style={{
+                    ...posStyles[pos],
+                    transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                    cursor: pos === "center" ? "default" : "pointer",
+                  }}
+                >
+                  <img
+                    src={adv.img}
+                    alt={adv.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              );
+            })}
 
-        {/* Carousel track */}
-        <div className="hidden md:block relative z-10 w-full h-[300px] md:h-[420px] rounded-[32px] flex items-center justify-center ">
-          {adventures.map((adv, i) => {
-            const pos = getPosition(i);
-            return (
-              <div
-                key={adv.id}
-                onClick={() => {
-                  if (pos !== "center") {
-                    go(pos === "right1" || pos === "right2" ? 1 : -1);
-                  }
-                }}
-                className="absolute px-4 md:px-0 top-1/2 rounded-3xl overflow-hidden"
-                style={{
-                  ...posStyles[pos],
-                  transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
-                  cursor: pos === "center" ? "default" : "pointer",
-                }}
-              >
-                <img src={adv.img} alt={adv.title} className="w-full h-[380px] md:h-full rounded-3xl object-cover block" />
-                {pos !== "center" && (
-                  <div className="absolute inset-0 bg-black/[0.08] rounded-3xl" />
-                )}
-              </div>
-            );
-          })}
+            <button onClick={() => go(-1)} className="text-3xl absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white transition">
+              ‹
+            </button>
+            <button onClick={() => go(1)} className="text-3xl absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white transition">
+              ›
+            </button>
+          </div>
 
-          {/* Prev button */}
-          <button
-            onClick={() => go(-1)}
-            aria-label="Previous"
-            className="absolute left-0 md:top-1/2 -translate-y-1/2 z-30 w-[42px] h-[42px] flex items-center justify-center rounded-full border border-[#e2ddd6] bg-white/90 backdrop-blur-sm text-[#1E3355] text-xl shadow-md transition-all duration-200 hover:bg-white hover:scale-110 font-mono cursor-pointer"
-          >
-            ‹
-          </button>
-
-          {/* Next button */}
-          <button
-            onClick={() => go(1)}
-            aria-label="Next"
-            className="absolute right-0 md:top-1/2 -translate-y-1/2 z-30 w-[42px] h-[42px] flex items-center justify-center rounded-full border border-[#e2ddd6] bg-white/90 backdrop-blur-sm text-[#1E3355] text-xl shadow-md transition-all duration-200 hover:bg-white hover:scale-110 font-mono cursor-pointer"
-          >
-            ›
-          </button>
-        </div>
-
-        {/* ================= MOBILE ================= */}
-        <div className="md:hidden">
-          {/* Image */}
-          <div className="relative w-full h-[360px] rounded-[24px] overflow-hidden mb-6">
+          {/* MOBILE */}
+          <div className="md:hidden w-full">
             <img
               src={active.img}
-              alt={active.title}
-              className="w-full h-full object-cover"
+              className="w-full h-[360px] object-cover rounded-2xl"
             />
           </div>
 
-          {/* Text */}
-          {/* <h3 className="text-[22px] font-semibold text-blue-900 mb-3">
-            {active.title}
-          </h3>
+          {/* TEXT */}
+          <div className="mt-10 text-center max-w-[560px]">
+            <h2 className="text-body-header text-[22px] md:text-[24px] font-semibold text-[#1D4063] mb-4">
+              {active.title}
+            </h2>
+            <p className="text-body text-[16px] md:text-[18px] text-gray-600">{active.description}</p>
 
-          <p className="text-gray-600 text-[15px] leading-relaxed px-2">
-            {active.description}
-          </p> */}
-
-          {/* Dots */}
-          {/* <div className="flex justify-center gap-2 mt-6">
-            {adventures.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                className={`h-2 rounded-full transition-all ${
-                  i === index ? "w-6 bg-[#1D4063]" : "w-2 bg-gray-300"
-                }`}
-              />
-            ))}
-          </div> */}
-        <button
-            onClick={() => go(-1)}
-            aria-label="Previous"
-            className="absolute left-0 top-1/2 md:top-1/2 -translate-y-1/2 z-30 w-[42px] h-[42px] flex items-center justify-center rounded-full border border-[#e2ddd6] bg-white/90 backdrop-blur-sm text-[#1E3355] text-xl shadow-md transition-all duration-200 hover:bg-white hover:scale-110 font-mono cursor-pointer"
-          >
-            ‹
-          </button>
-
-          {/* Next button */}
-          <button
-            onClick={() => go(1)}
-            aria-label="Next"
-            className="absolute right-0 top-1/2 md:top-1/2 -translate-y-1/2 z-30 w-[42px] h-[42px] flex items-center justify-center rounded-full border border-[#e2ddd6] bg-white/90 backdrop-blur-sm text-[#1E3355] text-xl shadow-md transition-all duration-200 hover:bg-white hover:scale-110 font-mono cursor-pointer"
-          >
-            ›
-          </button>
-        </div>
-
-        {/* Caption */}
-        <div className="relative z-10 md:mt-11 text-center max-w-[560px] transition-opacity duration-300">
-          <h2
-            className="text-[24px] md:text-[26px] text-body-header font-semibold mb-4 text-blue-900"
-            style={{ letterSpacing: "-0.01em" }}
-          >
-            {active.title}
-          </h2>
-          <p className="text-[16px] md:text-[18px] text-body text-gray-600 leading-relaxed">
-            {active.description}
-          </p>
-
-          {/* Dot indicators */}
-          <div className="flex justify-center items-center gap-2 mt-7">
-            {adventures.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  const diff = i - activeIndex;
-                  if (diff !== 0) go(diff > 0 ? 1 : -1);
-                }}
-                aria-label={`Go to slide ${i + 1}`}
-                className="h-2 rounded-full border-none p-0 cursor-pointer transition-all duration-300"
-                style={{
-                  width: i === activeIndex ? "28px" : "8px",
-                  background: i === activeIndex ? "#C8591A" : "#d6cfc5",
-                }}
-              />
-            ))}
+            {/* DOTS */}
+            <div className="flex justify-center gap-2 mt-6">
+              {adventures.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => go(i > activeIndex ? 1 : -1)}
+                  className="h-2 rounded-full"
+                  style={{
+                    width: i === activeIndex ? "28px" : "8px",
+                    background: i === activeIndex ? "#C8591A" : "#ccc",
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
-        </div>
-        </Container>
-      </div>
-    </>
+      </Container>
+    </div>
   );
 }

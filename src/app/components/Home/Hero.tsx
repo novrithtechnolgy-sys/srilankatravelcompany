@@ -42,11 +42,16 @@ export default function Hero() {
 
               {/* Buttons */}
               <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
-                <Button >
+                <Button 
+                  href="/tours"
+                >
                   Explore Tours →
                 </Button>
 
-                <Button variant="outline">
+                <Button
+                 variant="outline"
+                  href="https://wa.me/1234567890?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
+                >
                   Contact via WhatsApp
                 </Button>
               </div>

@@ -61,7 +61,7 @@ export default function BookingForm({ slug }: { slug: string }) {
 
       <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-8 md:mb-16 z-50">
         <span className="text-orange-500">Secure</span>{" "}
-        <span className="text-blue-900">Your Expedition</span>
+        <span className="text-[#1E3355]">Your Expedition</span>
       </h2>
 
       {/* FORM */}
@@ -85,7 +85,6 @@ export default function BookingForm({ slug }: { slug: string }) {
                   onChange={handleChange}
                   className="w-full py-2 outline-none bg-transparent"
                 />
-                <Calendar size={18} className="text-gray-500" />
               </div>
             </div>
 

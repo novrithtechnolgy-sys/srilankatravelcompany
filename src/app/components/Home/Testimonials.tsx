@@ -87,7 +87,7 @@ export default function Testimonials() {
 
           <h2 className="text-section text-[32px] md:text-[64px] font-semibold mb-10 md:mb-16">
             <span className="text-orange-500">What Our</span>{" "}
-            <span className="text-blue-900">Travelers Say</span>
+            <span className="text-[#1D4063]">Travelers Say</span>
           </h2>
 
           {/* ================= MOBILE ================= */}
@@ -108,14 +108,14 @@ export default function Testimonials() {
                 </p>
 
                 {/* User */}
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-6 ">
                   {testimonials[index]?.avatar && (
                     <Image
                       src={urlFor(testimonials[index].avatar).url()}
                       alt={testimonials[index].name}
                       width={45}
                       height={45}
-                      className="rounded-full object-cover"
+                      className="rounded-full object-cover h-8 w-8"
                     />
                   )}
 
@@ -136,7 +136,7 @@ export default function Testimonials() {
                       key={i}
                       className={`h-2 rounded-full ${
                         i === index
-                          ? "w-4 bg-blue-900"
+                          ? "w-4 bg-[#1D4063]"
                           : "w-2 bg-gray-300"
                       }`}
                     />
@@ -150,7 +150,7 @@ export default function Testimonials() {
               <button
                 onClick={prev}
                 disabled={testimonials.length <= visible}
-                className="w-10 h-10 flex items-center justify-center rounded-full border disabled:opacity-40"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063] disabled:opacity-40"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -158,7 +158,7 @@ export default function Testimonials() {
               <button
                 onClick={next}
                 disabled={testimonials.length <= visible}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-900 text-white disabled:opacity-40"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1E3355] text-white disabled:opacity-40"
               >
                 <ChevronRight size={18} />
               </button>
@@ -195,7 +195,7 @@ export default function Testimonials() {
                           alt={item.name}
                           width={40}
                           height={40}
-                          className="rounded-full object-cover"
+                          className="rounded-full object-cover h-12 w-12"
                         />
                       )}
 
@@ -226,7 +226,7 @@ export default function Testimonials() {
               <button
                 onClick={next}
                 disabled={testimonials.length <= visible}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-900 text-white disabled:opacity-40"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1D4063] text-white disabled:opacity-40"
               >
                 <ChevronRight size={18} />
               </button>

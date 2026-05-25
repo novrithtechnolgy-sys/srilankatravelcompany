@@ -61,7 +61,7 @@ export default function Stay() {
 
       <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
         <span className="text-orange-500">Stay Where</span>{" "}
-        <span className="text-blue-900">You’re Celebrated</span>
+        <span className="text-[#1D4063]">You’re Celebrated</span>
       </h2>
 
       <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-12 md:mb-16">
@@ -85,7 +85,7 @@ export default function Stay() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-2">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1D4063] font-semibold mb-2">
                 {item.title}
               </h3>
 
@@ -111,11 +111,11 @@ export default function Stay() {
                 )}
               </div>
 
-              <h3 className="text-[22px] text-blue-900 font-semibold mb-3">
+              <h3 className="text-body-header text-[22px] text-[#1D4063] font-semibold mb-3">
                 {stays[index]?.title}
               </h3>
 
-              <p className="text-[16px] text-gray-600 leading-relaxed px-2">
+              <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
                 {stays[index]?.desc}
               </p>
 
@@ -126,7 +126,7 @@ export default function Stay() {
                     key={i}
                     className={`h-2 rounded-full transition-all ${
                       i === index
-                        ? "w-4 bg-blue-900"
+                        ? "w-4 bg-[#1D4063]"
                         : "w-2 bg-gray-300"
                     }`}
                   />
@@ -140,14 +140,14 @@ export default function Stay() {
         <div className="flex justify-center gap-4 mt-10">
           <button
             onClick={prev}
-            className="w-10 h-10 flex items-center justify-center rounded-full border"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063]"
           >
             <ChevronLeft size={18} />
           </button>
 
           <button
             onClick={next}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-900 text-white"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1D4063] text-white"
           >
             <ChevronRight size={18} />
           </button>

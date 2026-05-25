@@ -24,7 +24,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section className="py-10 md:py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
         {/* HEADER */}
@@ -35,7 +35,7 @@ export default function ContactForm() {
 
           <h2 className="text-section text-[32px] md:text-[48px] xl:text-[64px] font-semibold mb-4">
             <span className="text-orange-500">Send Us</span>{" "}
-            <span className="text-blue-900">a Message</span>
+            <span className="text-[#1E3355]">a Message</span>
           </h2>
 
           <p className="text-body text-gray-600 text-[16px] md:text-[18px]">

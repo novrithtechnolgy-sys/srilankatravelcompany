@@ -36,7 +36,7 @@ export default function ModernBackbone() {
         {/* Title */}
         <h2 className="text-section text-[32px] md:text-[48px] xl:text-[64px] font-semibold leading-tight mb-6">
           <span className="text-orange-500">The Modern</span>{" "}
-          <span className="text-blue-900">Backbone</span>
+          <span className="text-[#1D4063]">Backbone</span>
         </h2>
 
         {/* Description */}

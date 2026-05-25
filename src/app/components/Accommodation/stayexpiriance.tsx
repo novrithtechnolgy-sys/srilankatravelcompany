@@ -35,7 +35,7 @@ export default function StayExpiriance() {
             {/* Title */}
             <h2 className="text-[34px] md:text-[40px] xl:text-[64px] text-section font-semibold leading-tight mb-4">
               <span className="text-orange-500">More Than Just a Bed.</span>{" "}<br/>
-              <span className="text-blue-900">An Experience.</span>
+              <span className="text-[#1E3355]">An Experience.</span>
             </h2>
 
             {/* Paragraph */}

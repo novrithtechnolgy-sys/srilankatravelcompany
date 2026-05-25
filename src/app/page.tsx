@@ -23,6 +23,7 @@ export default function Home() {
       highlight="Your Best Day"
       subtitle="Discover the world with our expertly crafted travel experiences."
       buttonText="Book Your Day Trip"
+      buttonHref="/tours"
       backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777284316/8ca7857e9141534722168a7d0d09e0ba87143a2d_gcl7hh.webp"
     />
     </>

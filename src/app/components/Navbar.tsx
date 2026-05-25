@@ -13,6 +13,7 @@ const navLinks = [
   { name: "About Us", href: "/about" },
   { name: "Tours", href: "/tours" },
   { name: "Accommodation", href: "/accommodation" },
+  { name: "Crew", href: "/crew" },
 ];
 
 export default function Navbar() {
@@ -37,29 +38,29 @@ export default function Navbar() {
         className={clsx(
           "w-full z-50",
           scrolled
-            ? "fixed top-0 left-0"
+            ? "fixed top-0 md:top-4 left-0"
             : "absolute top-8 md:top-14 left-1/2 -translate-x-1/2 w-[95%] px-2"
         )}
       >
         <Container>
           <div
             className={clsx(
-              "flex flex-col rounded-2xl shadow-md transition-all duration-500",
+              "flex flex-col rounded-full shadow-md transition-all duration-500",
               scrolled
                 ? "bg-white backdrop-blur-md shadow-lg"
                 : "bg-white/80 backdrop-blur-md"
             )}
           >
             {/* TOP BAR */}
-            <div className="flex items-center justify-between px-4 py-3">
+            <div className="flex items-center justify-between px-8 py-3 whitespace-nowrap">
               {/* Logo */}
               <Link href="/">
                 <Image
-                  src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777116898/Frame_344_rlbart.png"
+                  src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1778244094/Frame_344_sw1i3o.png"
                   alt="Logo"
                   width={140}
                   height={140}
-                  className="h-8 md:h-10 w-auto"
+                  className="h-8 md:h-10 w-auto "
                 />
               </Link>
 

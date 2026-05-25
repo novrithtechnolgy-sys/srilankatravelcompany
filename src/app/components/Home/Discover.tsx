@@ -33,9 +33,9 @@ export default function Discover() {
             </span>
 
             {/* Title */}
-            <h2 className="text-[34px] md:text-[40px] xl:text-[64px] text-section font-semibold leading-tight mb-6">
+            <h2 className="text-[34px] md:text-[40px] xl:text-[64px] text-center md:text-left text-section font-semibold leading-tight mb-4 md:mb-6">
               <span className="text-orange-500">The Island</span>{" "}
-              <span className="text-blue-900">of Discovery</span>
+              <span className="text-[#1D4063]">of Discovery</span>
             </h2>
 
             {/* Paragraph */}
@@ -46,9 +46,10 @@ export default function Discover() {
             </p>
 
             <p className="text-gray-600 leading-relaxed">
-              
-
-Whether you’re drawn by ancient history, world-class surf, lush landscapes, or a vibrant culture rich in stories and flavors, every corner of the island has something unforgettable to offer. From hidden gems to iconic experiences, we bring you closer to the true spirit of Sri Lanka—authentic, immersive, and deeply memorable.
+            
+                Whether you’re drawn by ancient history, world-class surf, lush landscapes, or a vibrant culture rich in stories and flavors, 
+                every corner of the island has something unforgettable to offer. From hidden gems to iconic experiences, 
+                we bring you closer to the true spirit of Sri Lanka-authentic, immersive, and deeply memorable.
             </p>
 
           </div>

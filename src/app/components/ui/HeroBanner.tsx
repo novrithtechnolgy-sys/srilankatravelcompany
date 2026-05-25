@@ -8,6 +8,7 @@ type HeroBannerProps = {
   highlight?: string; // colored part (e.g., "Your Best Day")
   subtitle?: string;
   buttonText?: string;
+  buttonHref?: string;
   onButtonClick?: () => void;
   backgroundImage: string;
 };
@@ -17,6 +18,7 @@ export default function HeroBanner({
   highlight,
   subtitle,
   buttonText,
+  buttonHref,
   onButtonClick,
   backgroundImage,
 }: HeroBannerProps) {
@@ -42,7 +44,7 @@ export default function HeroBanner({
           {highlight && (
             <span className="text-orange-600">{highlight} </span>
           )}
-          <span className="text-blue-900">{title}</span>
+          <span className="text-[#1D4063]">{title}</span>
         </h1>
 
         {subtitle && (
@@ -52,13 +54,13 @@ export default function HeroBanner({
         )}
 
         {buttonText && (
-          <Button
-            type="button"
-            variant="primary"
-            onClick={onButtonClick}
-          >
-            {buttonText}
-          </Button>
+            <Button
+              variant="primary"
+              href={buttonHref}
+              onClick={onButtonClick}
+            >
+              {buttonText}
+            </Button>
         )}
       </div>
       </div>

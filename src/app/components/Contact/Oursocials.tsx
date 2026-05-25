@@ -35,7 +35,7 @@ export default function Oursocials() {
         {/* Title */}
         <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
           <span className="text-orange-500">Join The</span>{" "}
-          <span className="text-blue-900">Adventure Online</span>
+          <span className="text-[#1E3355]">Adventure Online</span>
         </h2>
 
         {/* Description */}
@@ -52,7 +52,7 @@ export default function Oursocials() {
               <FaInstagram size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-blue-900 mb-2">
+            <h3 className="text-[22px] font-semibold text-[#1D4063] mb-2">
               Instagram
             </h3>
 
@@ -70,7 +70,7 @@ export default function Oursocials() {
               <FaFacebookF size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-blue-900 mb-2">
+            <h3 className="text-[22px] font-semibold text-[#1D4063] mb-2">
               Facebook
             </h3>
 
@@ -88,7 +88,7 @@ export default function Oursocials() {
               <FaTiktok size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-blue-900 mb-2">
+            <h3 className="text-[22px] font-semibold text-[#1D4063] mb-2">
               TikTok
             </h3>
 

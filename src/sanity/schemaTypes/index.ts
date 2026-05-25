@@ -6,7 +6,9 @@ import experience from './experience'
 import booking from './booking'
 import staybefor from './staybefor'
 import transfer from './transfer'
+import guide from './guides'
+import vehicle from './vehicle'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [Stay,testimonial, RelaxAndResort, experience, booking, staybefor, transfer],
+  types: [Stay,testimonial, RelaxAndResort, experience, booking, staybefor, transfer, guide, vehicle],
 }

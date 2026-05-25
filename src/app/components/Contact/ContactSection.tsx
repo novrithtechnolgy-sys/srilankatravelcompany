@@ -35,7 +35,7 @@ export default function ContactSection() {
         {/* Title */}
         <h2 className="text-section text-[32px] md:text-[48px] xl:text-[64px] font-semibold mb-6 leading-tight">
           <span className="text-orange-500">Connect With</span>{" "}
-          <span className="text-blue-900">Our Local Experts</span>
+          <span className="text-[#1D4063]">Our Local Experts</span>
         </h2>
 
         {/* Description */}
@@ -52,7 +52,7 @@ export default function ContactSection() {
               <Phone size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-blue-900 mb-2">
+            <h3 className="text-body-header text-[22px] font-semibold text-[#1D4063] mb-2">
               WhatsApp Support
             </h3>
 
@@ -70,12 +70,12 @@ export default function ContactSection() {
               <MapPin size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-blue-900 mb-2">
+            <h3 className="text-body-header text-[22px] font-semibold text-[#1D4063] mb-2">
               Our Office
             </h3>
 
             <p className="text-gray-600 max-w-xs">
-              No 233, Galle Road, Matara, Sri Lanka
+              22 Marikkar St, Dharga Town 12090, Sri Lanka
             </p>
           </div>
 
@@ -88,12 +88,12 @@ export default function ContactSection() {
               <Mail size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-blue-900 mb-2">
+            <h3 className="text-body-header text-[22px] font-semibold text-[#1D4063] mb-2">
               Email Inquiries
             </h3>
 
             <p className="text-gray-600">
-              example@gmail.com
+              hello@srilankatourcompany.com
             </p>
           </div>
 
