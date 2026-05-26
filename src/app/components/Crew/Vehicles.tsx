@@ -64,17 +64,17 @@ export default function Vehicles() {
     <section className="pt-10 md:pt-20">
       <Container>
         {/* HEADER */}
-        <div className="mx-auto mb-20 max-w-5xl text-center">
-          <span className="mb-6 inline-block rounded-full bg-gray-200 px-5 py-2 text-[12px] uppercase tracking-[4px] text-gray-700">
+        <div className="mx-auto max-w-5xl text-center">
+          <span className="inline-block text-label rounded-full bg-gray-200 px-4 py-1 text-[10px] md:text-[14px] uppercase tracking-[4px] text-gray-700 mb-4">
             Vehicles
           </span>
 
-          <h2 className="text-section mb-6 text-[34px] font-semibold md:text-[40px] xl:text-[64px]">
+          <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
             <span className="text-orange-500">The</span>{" "}
             <span className="text-[#1D4063]">Vehicles</span>
           </h2>
 
-          <p className="text-body mx-auto max-w-md text-[16px] leading-relaxed text-gray-600 md:text-[18px]">
+          <p className="text-body mx-auto max-w-3xl text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
             We have the best vehicles for your adventure.
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function Vehicles() {
           {visibleItems.map((item) => (
             <div key={item._id}>
               {/* IMAGE */}
-              <div className="relative mb-8 h-[420px] overflow-hidden rounded-[34px]">
+              <div className="relative mb-6 h-[420px] overflow-hidden rounded-[34px]">
                 <Image
                   src={urlFor(item.image).url()}
                   alt={item.title}
@@ -93,18 +93,18 @@ export default function Vehicles() {
                 />
 
                 {/* TAG */}
-                <div className="absolute top-5 left-5 rounded-full bg-white/90 px-5 py-2 text-[15px] font-medium text-black backdrop-blur-sm">
+                <div className="absolute top-5 left-5 rounded-full bg-white/90 px-5 py-2 text-[14px] font-medium text-black backdrop-blur-sm">
                   {item.tag}
                 </div>
               </div>
 
               {/* TITLE */}
-              <h3 className="text-body-header mb-4 text-[20px] font-semibold text-[#1D4063] md:text-[24px]">
+              <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
                 {item.title}
               </h3>
 
               {/* PASSENGERS */}
-              <p className="mb-6 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
+              <p className="text-body mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
                 {item.passengers}
               </p>
 
@@ -131,16 +131,20 @@ export default function Vehicles() {
                         )}
                       </div>
         
-                      <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3">
+                      <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-4">
                         {vehicles[index]?.title}
                       </h3>
+
+                      <p className="mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
+                        {vehicles[index]?.passengers}
+                      </p>
         
                       <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
                         {vehicles[index]?.description}
                       </p>
         
                       {/* DOTS */}
-                      <div className="flex justify-center gap-2 mt-6">
+                      <div className="flex justify-center gap-2 mt-8">
                         {vehicles.map((_, i) => (
                           <div
                             key={i}
@@ -157,7 +161,7 @@ export default function Vehicles() {
                 </div>
 
         {/* NAVIGATION */}
-        <div className="mt-10 flex justify-center gap-4">
+        <div className="mt-10 flex justify-center gap-4 md:gap-8">
           <button
             onClick={prev}
             className="flex h-10 w-10 items-center justify-center rounded-full border"

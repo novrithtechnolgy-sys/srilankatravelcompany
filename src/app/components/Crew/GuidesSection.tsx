@@ -80,12 +80,12 @@ export default function GuidesSection() {
       <Container>
         <div className="relative z-10">
           {/* HEADER */}
-          <div className="mx-auto mb-20 max-w-5xl text-center">
-            <span className="mb-6 inline-block rounded-full bg-gray-200 px-5 py-2 text-[12px] uppercase tracking-[4px] text-gray-700">
+          <div className="mx-auto max-w-5xl text-center">
+            <span className="inline-block text-label rounded-full bg-gray-200 px-4 py-1 text-[10px] md:text-[14px] uppercase tracking-[4px] text-gray-700 mb-4">
               Our Guides
             </span>
 
-            <h2 className="text-section mb-6 text-[34px] font-semibold md:text-[40px] xl:text-[64px]">
+            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
               <span className="text-[#C86421]">
                 The Local Storytellers
               </span>{" "}
@@ -94,7 +94,7 @@ export default function GuidesSection() {
               </span>
             </h2>
 
-            <p className="text-body mx-auto max-w-3xl text-[16px] leading-relaxed text-gray-600 md:text-[18px]">
+            <p className="text-body mx-auto max-w-3xl text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
               Experience Sri Lanka with the island's most dedicated team.
               Our guides are not just experts; they are passionate
               storytellers who bring the rich tapestry of Sri Lankan
@@ -107,7 +107,7 @@ export default function GuidesSection() {
             {visibleItems.map((guide) => (
               <div key={guide._id}>
                 {/* IMAGE */}
-                <div className="relative mb-8 h-[420px] overflow-hidden rounded-[34px]">
+                <div className="relative mb-6 h-[420px] overflow-hidden rounded-[34px]">
                   <Image
                     src={urlFor(guide.image).url()}
                     alt={guide.name}
@@ -117,12 +117,12 @@ export default function GuidesSection() {
                 </div>
 
                 {/* NAME */}
-                <h3 className="text-body-header mb-4 text-[22px] font-semibold text-[#1D4063] md:text-[24px]">
+                <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
                   {guide.name}
                 </h3>
 
                 {/* ROLE */}
-                <p className="mb-6 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
+                <p className="mb-4 text-[12px] text-body font-semibold uppercase tracking-[2px] text-[#C86421]">
                   {guide.role}
                 </p>
 
@@ -149,16 +149,18 @@ export default function GuidesSection() {
                           )}
                         </div>
           
-                        <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3">
+                        <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-4">
                           {guides[index]?.name}
                         </h3>
-          
+                          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
+                            {guides[index]?.role}
+                          </p>
                         <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
                           {guides[index]?.bio}
                         </p>
           
                         {/* DOTS */}
-                        <div className="flex justify-center gap-2 mt-6">
+                        <div className="flex justify-center gap-2 mt-8">
                           {guides.map((_, i) => (
                             <div
                               key={i}
@@ -175,7 +177,7 @@ export default function GuidesSection() {
                   </div>
 
           {/* NAVIGATION */}
-          <div className="mt-14 flex justify-center gap-4">
+          <div className="mt-10 flex justify-center gap-4 md:gap-8">
             <button
               onClick={prev}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-[#1D4063] transition hover:bg-[#1D4063] hover:text-white"

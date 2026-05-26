@@ -59,13 +59,13 @@ export default function PremiumComfort() {
         <div className="relative z-10">
 
           {/* Header */}
-          <div className="text-center max-w-5xl mx-auto mb-20">
+          <div className="text-center max-w-5xl mx-auto">
 
-            <span className="inline-block text-[12px] tracking-[4px] bg-gray-200 text-gray-700 px-5 py-2 rounded-full mb-6 uppercase">
+            <span className="inline-block text-label rounded-full bg-gray-200 px-4 py-1 text-[10px] md:text-[14px] uppercase tracking-[4px] text-gray-700 mb-4">
               Premium Comfort
             </span>
 
-            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold mb-6">
+            <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
               <span className="text-[#C86421]">
                 The Little Things
               </span>{" "}
@@ -74,14 +74,14 @@ export default function PremiumComfort() {
               </span>
             </h2>
 
-            <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto">
+            <p className="text-body mx-auto max-w-3xl text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
               We believe the journey should be as refreshing as the destination.
               Every vehicle dispatched by our crew comes standard with:
             </p>
           </div>
 
           {/* Features */}
-          <div className="grid md:grid-cols-4 gap-12 md:gap-8">
+          <div className="grid md:grid-cols-4 gap-8 md:gap-8">
 
             {comforts.map((item, i) => {
               const Icon = item.icon;
@@ -93,17 +93,17 @@ export default function PremiumComfort() {
                 >
 
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-8">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
                     <Icon size={28} strokeWidth={1.8} />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-body-header text-[20px] md:text-[22px] font-semibold text-[#1D4063] mb-4">
+                  <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4 ">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
+                  <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
                     {item.desc}
                   </p>
 
