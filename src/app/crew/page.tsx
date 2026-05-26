@@ -5,6 +5,26 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/ui/Hero";
 import HeroBanner from "../components/ui/HeroBanner";
 
+export const metadata = {
+  title:
+    "Meet Our Guides & Premium Fleet",
+
+  description:
+    "Meet the experienced chauffeur guides and premium vehicles behind Sri Lanka Travel Company. Travel safely and comfortably across the island.",
+
+  keywords: [
+    "Sri Lanka chauffeur guide",
+    "Sri Lanka tour vehicles",
+    "Toyota KDH Sri Lanka",
+    "private driver Sri Lanka",
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.srilankatravelcompany.com/crew",
+  },
+};
+
 export default function Crew() {
     return (
         <>

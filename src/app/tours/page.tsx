@@ -5,6 +5,27 @@ import TransfersSection from "@/app/components/Tours/TransfersSection";
 import Hero from "@/app/components/ui/Hero";
 import HeroBanner from "../components/ui/HeroBanner";
 
+export const metadata = {
+  title:
+    "Sri Lanka Tours & One-Day Adventures",
+
+  description:
+    "Explore Sri Lanka’s best one-day experiences including safaris, Sigiriya tours, beach escapes, hill country adventures, whale watching, and cultural journeys.",
+
+  keywords: [
+    "Sri Lanka tours",
+    "Sigiriya day trip",
+    "Yala safari",
+    "Ella tours",
+    "Kandy tours",
+    "Sri Lanka day trips",
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.srilankatravelcompany.com/tours",
+  },
+};
 
 export default function Experience() {
     return (

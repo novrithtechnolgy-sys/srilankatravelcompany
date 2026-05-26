@@ -7,6 +7,26 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/ui/Hero";
 import HeroBanner from "../components/ui/HeroBanner";
 
+export const metadata = {
+  title:
+    "About Us | Authentic Sri Lankan Travel Experts",
+
+  description:
+    "Meet the local storytellers behind Sri Lanka Travel Company. We create unforgettable one-day adventures, safaris, cultural journeys, and private experiences across the island.",
+
+  keywords: [
+    "Sri Lanka local guides",
+    "Sri Lanka travel experts",
+    "Sri Lanka private tours",
+    "Sri Lanka travel agency",
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.srilankatravelcompany.com/about",
+  },
+};
+
 export default function About() {
   return (
     <>

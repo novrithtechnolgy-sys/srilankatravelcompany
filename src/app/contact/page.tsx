@@ -4,6 +4,25 @@ import Oursocials from "../components/Contact/Oursocials";
 import Navbar from "../components/Navbar";
 import Hero from "../components/ui/Hero";
 
+export const metadata = {
+  title:
+    "Contact Sri Lanka Travel Company",
+
+  description:
+    "Contact our local Sri Lankan travel experts for private tours, airport pickups, custom itineraries, and luxury travel experiences.",
+
+  keywords: [
+    "Contact Sri Lanka travel company",
+    "Sri Lanka tour booking",
+    "Sri Lanka WhatsApp tours",
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.srilankatravelcompany.com/contact",
+  },
+};
+
 export default function Contact() {
     return (
         <>

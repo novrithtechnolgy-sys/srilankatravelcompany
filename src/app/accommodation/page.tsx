@@ -6,6 +6,27 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/ui/Hero";
 import HeroBanner from "../components/ui/HeroBanner";
 
+export const metadata = {
+  title:
+    "Luxury Villas & Boutique Stays in Sri Lanka",
+
+  description:
+    "Stay in curated luxury villas, eco-lodges, boutique chalets, wellness retreats, and premium accommodations across Sri Lanka.",
+
+  keywords: [
+    "Sri Lanka villas",
+    "Sri Lanka accommodation",
+    "Sri Lanka luxury stays",
+    "boutique hotels Sri Lanka",
+    "Sri Lanka resorts",
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.srilankatravelcompany.com/accommodation",
+  },
+};
+
 export default function Accommodation() {
     return (
         <>

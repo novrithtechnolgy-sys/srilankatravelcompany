@@ -6,6 +6,7 @@ import Hero from "@/app/components/ui/Hero";
 import HeroBanner from "@/app/components/ui/HeroBanner";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { Metadata } from "next/types";
 
 type PageProps = {
   params: {
@@ -13,7 +14,54 @@ type PageProps = {
   };
 };
 
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = params;
 
+  const data = await client.fetch(
+    `*[_type=="experience" && slug.current==$slug][0]{
+      title,
+      description,
+      heroImage,
+      category
+    }`,
+    { slug }
+  );
+
+  return {
+    title: `${data.title} | Sri Lanka Private Tour`,
+
+    description: data.description,
+
+    keywords: [
+      data.title,
+      data.category,
+      "Sri Lanka private tour",
+      "Sri Lanka experience",
+      "Sri Lanka travel",
+    ],
+
+    openGraph: {
+      title: data.title,
+
+      description: data.description,
+
+      images: [
+        {
+          url: urlFor(data.heroImage)
+            .width(1200)
+            .quality(85)
+            .url(),
+        },
+      ],
+    },
+
+    alternates: {
+      canonical: `https://www.srilankatravelcompany.com/experience/${slug}`,
+    },
+  };
+}
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;

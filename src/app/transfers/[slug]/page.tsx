@@ -8,6 +8,25 @@ import HeroBanner from "@/app/components/ui/HeroBanner";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 
+export const metadata = {
+  title:
+    "Airport Transfers & Premium Pickups in Sri Lanka",
+
+  description:
+    "Professional airport pickups, hotel transfers, and private transport services across Sri Lanka with modern air-conditioned vehicles.",
+
+  keywords: [
+    "Sri Lanka airport transfer",
+    "Colombo airport pickup",
+    "Sri Lanka private transport",
+    "Sri Lanka taxi service",
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.srilankatravelcompany.com/transfers",
+  },
+};
 
 type PageProps = {
   params: {
