@@ -28,7 +28,7 @@ export default function Oursocials() {
       <Container>
 
         {/* Label */}
-        <span className="inline-block text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+        <span className="inline-block text-label rounded-full bg-gray-200 px-4 py-1 text-[10px] md:text-[14px] uppercase tracking-[4px] text-gray-700 mb-4">
           Our Socials
         </span>
 
@@ -39,24 +39,24 @@ export default function Oursocials() {
         </h2>
 
         {/* Description */}
-        <p className="text-gray-600 text-[16px] md:text-[18px] max-w-2xl mx-auto mb-16 leading-relaxed">
+        <p className="ext-body mx-auto max-w-3xl text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
            Stay updated with the latest one-day tour routes, hidden gems, and travel tips by following our social media channels.
         </p>
 
         {/* CONTACT ITEMS */}
-        <div className="grid md:grid-cols-3 items-center gap-10 md:gap-0">
+        <div className="grid md:grid-cols-3 items-center gap-8 md:gap-0">
 
           {/* WhatsApp */}
-          <div className="flex flex-col items-center text-center px-4">
-            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white mb-5">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
               <FaInstagram size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-[#1D4063] mb-2">
+            <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
               Instagram
             </h3>
 
-            <p className="text-gray-600">
+            <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
               @SriLankaTourCompany
             </p>
           </div>
@@ -66,15 +66,15 @@ export default function Oursocials() {
 
           {/* Office */}
           <div className="flex flex-col items-center text-center px-4">
-            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white mb-5">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
               <FaFacebookF size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-[#1D4063] mb-2">
+            <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
               Facebook
             </h3>
 
-            <p className="text-gray-600 max-w-xs">
+            <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
               Sri Lanka Tour Company
             </p>
           </div>
@@ -84,15 +84,15 @@ export default function Oursocials() {
 
           {/* Email */}
           <div className="flex flex-col items-center text-center px-4">
-            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white mb-5">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
               <FaTiktok size={22} />
             </div>
 
-            <h3 className="text-[22px] font-semibold text-[#1D4063] mb-2">
+            <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
               TikTok
             </h3>
 
-            <p className="text-gray-600">
+            <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
               Sri Lanka Tour Company
             </p>
           </div>

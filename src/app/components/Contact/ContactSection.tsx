@@ -5,7 +5,7 @@ import Container from "../Container";
 
 export default function ContactSection() {
   return (
-    <section className="relative py-20 md:py-28 text-center overflow-hidden">
+    <section className="relative py-10 md:py-20 text-center overflow-hidden">
 
       {/* Background */}
       <div className="absolute inset-0">
@@ -28,35 +28,35 @@ export default function ContactSection() {
       <Container>
 
         {/* Label */}
-        <span className="inline-block text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+        <span className="inline-block text-label rounded-full bg-gray-200 px-4 py-1 text-[10px] md:text-[14px] uppercase tracking-[4px] text-gray-700 mb-4">
           REACH US
         </span>
 
         {/* Title */}
-        <h2 className="text-section text-[32px] md:text-[48px] xl:text-[64px] font-semibold mb-6 leading-tight">
+        <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
           <span className="text-orange-500">Connect With</span>{" "}
           <span className="text-[#1D4063]">Our Local Experts</span>
         </h2>
 
         {/* Description */}
-        <p className="text-gray-600 text-[16px] md:text-[18px] max-w-2xl mx-auto mb-16 leading-relaxed">
+        <p className="text-body mx-auto max-w-3xl text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
           We believe in personal service. Reach out through any of the channels below and our team will get back to you within the hour to help you finalize your plans.
         </p>
 
         {/* CONTACT ITEMS */}
-        <div className="grid md:grid-cols-3 items-center gap-10 md:gap-0">
+        <div className="grid md:grid-cols-3 items-center gap-8 md:gap-0">
 
           {/* WhatsApp */}
-          <div className="flex flex-col items-center text-center px-4">
-            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white mb-5">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
               <Phone size={22} />
             </div>
 
-            <h3 className="text-body-header text-[22px] font-semibold text-[#1D4063] mb-2">
+            <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
               WhatsApp Support
             </h3>
 
-            <p className="text-gray-600">
+            <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
               +94 77 123 4567
             </p>
           </div>
@@ -66,15 +66,15 @@ export default function ContactSection() {
 
           {/* Office */}
           <div className="flex flex-col items-center text-center px-4">
-            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white mb-5">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
               <MapPin size={22} />
             </div>
 
-            <h3 className="text-body-header text-[22px] font-semibold text-[#1D4063] mb-2">
+            <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
               Our Office
             </h3>
 
-            <p className="text-gray-600 max-w-xs">
+            <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
               22 Marikkar St, Dharga Town 12090, Sri Lanka
             </p>
           </div>
@@ -84,15 +84,15 @@ export default function ContactSection() {
 
           {/* Email */}
           <div className="flex flex-col items-center text-center px-4">
-            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white mb-5">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
               <Mail size={22} />
             </div>
 
-            <h3 className="text-body-header text-[22px] font-semibold text-[#1D4063] mb-2">
+            <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
               Email Inquiries
             </h3>
 
-            <p className="text-gray-600">
+            <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
               hello@srilankatourcompany.com
             </p>
           </div>
