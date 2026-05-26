@@ -211,7 +211,7 @@ export default function AdventureCarousel() {
                   className="h-2 rounded-full"
                   style={{
                     width: i === activeIndex ? "28px" : "8px",
-                    background: i === activeIndex ? "#C8591A" : "#ccc",
+                    background: i === activeIndex ? "#1D4063" : "#ccc",
                   }}
                 />
               ))}

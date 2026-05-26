@@ -46,8 +46,8 @@ export default function JourneySection({
 
       <Container>
         {/* HEADER */}
-        <div className="text-center mb-20">
-          <span className="inline-block text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+        <div className="text-center">
+          <span className="inline-block text-label rounded-full bg-gray-200 px-4 py-1 text-[10px] md:text-[14px] uppercase tracking-[4px] text-gray-700 mb-4">
             EXPERIENCE
           </span>
 
@@ -56,13 +56,13 @@ export default function JourneySection({
             <span className="text-[#1E3355]">{title2}</span>
           </h2>
 
-          <p className="text-body text-gray-600 max-w-6xl mx-auto mt-4 text-[15px] md:text-[17px] leading-relaxed">
+          <p className="text-body mx-auto text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
             {description}
           </p>
         </div>
 
         {/* DETAILS */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20 md:mb-40 text-left">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20 md:mb-40 text-body text-left">
           <Item icon={<Clock />} label="Duration" value={details.duration} />
           <Item icon={<Timer />} label="Start Time" value={details.startTime} />
           <Item icon={<Car />} label="Pickup" value={details.pickup} />
@@ -78,7 +78,7 @@ export default function JourneySection({
         {gallery?.length > 0 && (
           <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             {/* LEFT BIG IMAGE */}
-            <div className="relative h-[300px] md:h-[600px] rounded-[20px] overflow-hidden">
+            <div className="relative h-[250px] md:h-[600px] rounded-[20px] overflow-hidden">
               <Image
                 src={urlFor(gallery[0]).url()}
                 alt="main"
@@ -93,7 +93,7 @@ export default function JourneySection({
                 <div
                   key={i}
                   className={`relative rounded-[16px] overflow-hidden ${
-                    i === 2 ? "col-span-2 h-[290px]" : "h-[290px]"
+                    i === 2 ? "col-span-2 h-[250px] md:h-[290px]" : "h-[250px] md:h-[290px]"
                   }`}
                 >
                   <Image
@@ -126,7 +126,7 @@ function Item({
 
   return (
     <div className="flex items-start gap-4">
-      <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white shrink-0">
+      <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white shrink-0">
         {icon}
       </div>
 

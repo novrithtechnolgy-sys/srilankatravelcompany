@@ -55,5 +55,19 @@ export default {
         },
       ],
     },
+    {
+      name: "stay",
+      title: "Stay",
+      type: "array",
+      of: [{ type: "object",
+      fields: [
+        { name: "title", type: "string", title: "Title" },
+        { name: "desc", type: "text", title: "Description" },
+        { name: "image", type: "image", title: "Image", 
+        opens: { hotspot: true },},
+      
+      ],
+    }],
+    }
   ],
 };

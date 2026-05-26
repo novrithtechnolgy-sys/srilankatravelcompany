@@ -8,11 +8,12 @@ interface HeroBannerProps {
     highlight?: string;
     subtitle?: string;
     buttonText?: string;
+    buttonHref?: string;
     onButtonClick?: () => void;
     backgroundImage?: string;
 }
 
-export default function Hero({ title, highlight, subtitle, buttonText, onButtonClick, backgroundImage }: HeroBannerProps) {
+export default function Hero({ title, highlight, subtitle, buttonText, buttonHref, backgroundImage, onButtonClick }: HeroBannerProps) {
   return (
     <section className="p-4">
     <div className="relative w-full h-[90vh] rounded-[28px] overflow-hidden">
@@ -51,7 +52,9 @@ export default function Hero({ title, highlight, subtitle, buttonText, onButtonC
 
               {/* Buttons */}
               <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
-                <Button >
+                <Button 
+                href={buttonHref}
+                onClick={onButtonClick}>
                   {buttonText || "Explore Tours →"}
                 </Button>
               </div>
