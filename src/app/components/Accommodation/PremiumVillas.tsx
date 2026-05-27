@@ -111,7 +111,7 @@ export default function PremiumVillas() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3">
+              <h3 className="text-body-header text-[24px] text-[#1E3355] font-semibold mb-3">
                 {stays[index]?.title}
               </h3>
 

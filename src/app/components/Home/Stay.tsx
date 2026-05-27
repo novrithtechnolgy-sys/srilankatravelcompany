@@ -55,7 +55,7 @@ export default function Stay() {
   return (
     <section className="py-10 md:py-20 text-center">
       {/* TOP */}
-      <span className="inline-block text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+      <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
         STAY WITH US
       </span>
 

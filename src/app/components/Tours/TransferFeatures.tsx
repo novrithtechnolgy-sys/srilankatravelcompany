@@ -52,27 +52,27 @@ export default function TransferFeatures({
       {/* Content */}
       <Container>
         {/* Description */}
-        <p className="max-w-5xl mx-auto text-gray-600 leading-relaxed mb-16 text-[15px] md:text-[17px]">
+        <p className="text-body mx-auto max-w-[1000px] text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
           {description}
         </p>
 
         {/* Features */}
-        <div className="grid md:grid-cols-4 gap-10 md:gap-6">
+        <div className="grid md:grid-cols-4 gap-8 md:gap-6">
           {features?.map((item, i) => {
             const Icon = iconMap[item.icon] || Handshake;
 
             return (
               <div key={i} className="flex flex-col items-center px-4">
                 
-                <div className="w-14 h-14 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1D4063] flex items-center justify-center text-white mb-6">
                   <Icon size={22} />
                 </div>
 
-                <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1D4063] mb-3">
+                <h3 className="text-body-header text-[24px] md:text-[26px] font-semibold text-[#1D4063] mb-4">
                   {item.title}
                 </h3>
 
-                <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
+                <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-[400px]">
                   {item.desc}
                 </p>
               </div>

@@ -36,7 +36,8 @@ export default function Accommodation() {
                 title="Your Home"
                 highlight="Base For Adventure"
                 subtitle="From luxury private villas to serene wellness retreats, we have curated the finest stays in Sri Lanka to perfectly complement your one-day tours."
-                buttonText="Explore Stays"
+                buttonHref="/transfers/bandaranaike-international-airport-pickups"
+                buttonText="Explore Transfers"
             />
             <StayExpiriance/>
             <PremiumVillas/>
@@ -46,6 +47,7 @@ export default function Accommodation() {
                 highlight="Need Help"
                 subtitle="Our team can help you book the ideal accommodation based on your tour itinerary."
                 buttonText="WhatsApp Us"
+                buttonHref="https://wa.me/1234567890?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
                 backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777365466/6780323ab3538aa5b6753714d45ca4c05c5f61db_1_1_xpmcog.webp"
             />
         </>

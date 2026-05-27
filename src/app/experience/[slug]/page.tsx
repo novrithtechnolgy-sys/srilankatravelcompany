@@ -14,54 +14,54 @@ type PageProps = {
   };
 };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = params;
+// export async function generateMetadata({
+//   params,
+// }: PageProps): Promise<Metadata> {
+//   const { slug } = params;
 
-  const data = await client.fetch(
-    `*[_type=="experience" && slug.current==$slug][0]{
-      title,
-      description,
-      heroImage,
-      category
-    }`,
-    { slug }
-  );
+//   const data = await client.fetch(
+//     `*[_type=="experience" && slug.current==$slug][0]{
+//       title,
+//       description,
+//       heroImage,
+//       category
+//     }`,
+//     { slug }
+//   );
 
-  return {
-    title: `${data.title} | Sri Lanka Private Tour`,
+//   return {
+//     title: `${data.title} | Sri Lanka Private Tour`,
 
-    description: data.description,
+//     description: data.description,
 
-    keywords: [
-      data.title,
-      data.category,
-      "Sri Lanka private tour",
-      "Sri Lanka experience",
-      "Sri Lanka travel",
-    ],
+//     keywords: [
+//       data.title,
+//       data.category,
+//       "Sri Lanka private tour",
+//       "Sri Lanka experience",
+//       "Sri Lanka travel",
+//     ],
 
-    openGraph: {
-      title: data.title,
+//     openGraph: {
+//       title: data.title,
 
-      description: data.description,
+//       description: data.description,
 
-      images: [
-        {
-          url: urlFor(data.heroImage)
-            .width(1200)
-            .quality(85)
-            .url(),
-        },
-      ],
-    },
+//       images: [
+//         {
+//           url: urlFor(data.heroImage)
+//             .width(1200)
+//             .quality(85)
+//             .url(),
+//         },
+//       ],
+//     },
 
-    alternates: {
-      canonical: `https://www.srilankatravelcompany.com/experience/${slug}`,
-    },
-  };
-}
+//     alternates: {
+//       canonical: `https://www.srilankatravelcompany.com/experience/${slug}`,
+//     },
+//   };
+// }
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
@@ -98,6 +98,7 @@ export default async function Page({ params }: PageProps) {
           highlight="Still"
           subtitle="Chat with our team on WhatsApp for custom routes and instant bookings."
           buttonText="Chat with Us"
+          buttonHref="https://wa.me/1234567890?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
           backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777284316/8ca7857e9141534722168a7d0d09e0ba87143a2d_gcl7hh.webp"
         />
     </>

@@ -63,6 +63,7 @@ export default async function Page({ params }: PageProps) {
             highlight="Ready To"
             subtitle="Secure your transfer today for a completely seamless travel experience."
             buttonText="Book My Pickup"
+            buttonHref="https://wa.me/1234567890?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
             backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777284316/8ca7857e9141534722168a7d0d09e0ba87143a2d_gcl7hh.webp"
          />
     </>

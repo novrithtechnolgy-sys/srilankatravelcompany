@@ -42,6 +42,7 @@ export default function Crew() {
                 highlight="Your Best Day Ever?"
                 subtitle="Your next great story is just a sunrise away. Let’s make it legendary."
                 buttonText="Book Your Adventure"
+                buttonHref="/tours"
                 backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1779688641/51d028302fe705a5306dfee6b4eea1e410bd7ce6_um4y5k.webp"
             />
         </>

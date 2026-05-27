@@ -11,7 +11,7 @@ export default function Footer() {
 
         {/* Background */}
         <div className="absolute inset-x-0 bottom-0 h-[200px] bg-[#234A73]/80 z-[10]" />
-        <div className="absolute z-[1] h-[150px] md:h-[200px] bottom-0 inset-x-0 mb-1">
+        <div className="absolute z-[1] h-[150px] md:h-[200px] bottom-0 inset-x-0">
             <Image
               src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777283252/b32018c191f6e61eb5815db0a36a204aa1d69803_crm9b8.png" // replace with your image
               alt="Background"

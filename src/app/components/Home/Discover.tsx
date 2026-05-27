@@ -45,7 +45,7 @@ export default function Discover() {
               It’s golden sunsets over endless beaches, misty mornings in the mountains, and the rhythm of everyday life that blends tradition with beauty.
             </p>
 
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 text-body text-[16px] md:text-[18px] leading-relaxed mb-4">
             
                 Whether you’re drawn by ancient history, world-class surf, lush landscapes, or a vibrant culture rich in stories and flavors, 
                 every corner of the island has something unforgettable to offer. From hidden gems to iconic experiences, 
