@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "../Container";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
@@ -20,6 +20,8 @@ type StayType = {
 export default function PremiumVillas() {
   const [stays, setStays] = useState<StayType[]>([]);
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   // Fetch data
   useEffect(() => {
@@ -89,7 +91,7 @@ export default function PremiumVillas() {
                 {item.title}
               </h3>
 
-              <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
+              <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed xl:line-clamp-2">
                 {item.desc}
               </p>
             </div>
@@ -97,7 +99,28 @@ export default function PremiumVillas() {
         </div>
 
         {/* ✅ MOBILE VIEW */}
-        <div className="md:hidden text-center">
+                  <div
+            className="md:hidden text-center flex flex-col items-center overflow-hidden"
+            onTouchStart={(e) => {
+              touchStartX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchMove={(e) => {
+              touchEndX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchEnd={() => {
+              const distance = touchStartX.current - touchEndX.current;
+
+              // swipe left
+              if (distance > 50) {
+                next();
+              }
+
+              // swipe right
+              if (distance < -50) {
+                prev();
+              }
+            }}
+          >
           {stays.length > 0 && (
             <div>
               <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
@@ -110,31 +133,33 @@ export default function PremiumVillas() {
                   />
                 )}
               </div>
-
+          <div className="min-h-[120px] flex flex-col">
               <h3 className="text-body-header text-[24px] text-[#1E3355] font-semibold mb-3">
                 {stays[index]?.title}
               </h3>
 
-              <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
+              <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2 flex-1 line-clamp-3">
                 {stays[index]?.desc}
               </p>
-
-              {/* DOTS */}
-              <div className="flex justify-center gap-2 mt-8">
-                {stays.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-2 rounded-full transition-all ${
-                      i === index
-                        ? "w-4 bg-blue-900"
-                        : "w-2 bg-gray-300"
-                    }`}
-                  />
-                ))}
-              </div>
+            </div>
             </div>
           )}
         </div>
+
+        
+        {/* DOTS */}
+          <div className="md:hidden flex justify-center gap-2 mt-8">
+              {stays.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-2 rounded-full transition-all ${
+                    i === index
+                      ? "w-4 bg-blue-900"
+                      : "w-2 bg-gray-300"
+                  }`}
+                />
+              ))}
+          </div>
 
         {/* ✅ NAV BUTTONS (desktop only) */}
         <div className="flex justify-center gap-4 md:gap-8 mt-10">

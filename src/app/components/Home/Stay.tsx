@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "../Container";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
@@ -20,6 +20,8 @@ type StayType = {
 export default function Stay() {
   const [stays, setStays] = useState<StayType[]>([]);
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   // Fetch data
   useEffect(() => {
@@ -73,7 +75,7 @@ export default function Stay() {
         {/* ✅ DESKTOP VIEW */}
         <div className="hidden md:grid md:grid-cols-3 gap-8 text-left">
           {visibleItems.map((item) => (
-            <div key={item._id}>
+            <div key={item._id} className="flex flex-col h-full">
               <div className="relative h-[360px] rounded-[24px] overflow-hidden mb-6">
                 {item.image && (
                   <Image
@@ -84,42 +86,70 @@ export default function Stay() {
                   />
                 )}
               </div>
-
+              <div className="flex flex-col flex-1 h-full">
               <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1D4063] font-semibold mb-4">
                 {item.title}
               </h3>
 
-              <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
+              <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed line-clamp-2">
                 {item.desc}
               </p>
+              </div>
             </div>
           ))}
         </div>
 
+
         {/* ✅ MOBILE VIEW */}
-        <div className="md:hidden text-center">
-          {stays.length > 0 && (
-            <div>
-              <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
-                {stays[index]?.image && (
-                  <Image
-                    src={urlFor(stays[index].image).url()}
-                    alt={stays[index].title}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
-                  />
-                )}
+          <div
+            className="md:hidden text-center flex flex-col items-center overflow-hidden"
+            onTouchStart={(e) => {
+              touchStartX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchMove={(e) => {
+              touchEndX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchEnd={() => {
+              const distance = touchStartX.current - touchEndX.current;
+
+              // swipe left
+              if (distance > 50) {
+                next();
+              }
+
+              // swipe right
+              if (distance < -50) {
+                prev();
+              }
+            }}
+          >
+            {stays.length > 0 && (
+              <div className="w-full transition-all duration-500 ease-out">
+                <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
+                  {stays[index]?.image && (
+                    <Image
+                      src={urlFor(stays[index].image).url()}
+                      alt={stays[index].title}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </div>
+
+                <div className="min-h-[120px] flex flex-col">
+                  <h3 className="text-body-header text-[24px] text-[#1D4063] font-semibold mb-4">
+                    {stays[index]?.title}
+                  </h3>
+
+                  <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2 flex-1 line-clamp-3">
+                    {stays[index]?.desc}
+                  </p>
+                </div>
               </div>
-
-              <h3 className="text-body-header text-[24px] text-[#1D4063] font-semibold mb-4">
-                {stays[index]?.title}
-              </h3>
-
-              <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
-                {stays[index]?.desc}
-              </p>
-
-              {/* DOTS */}
+            )}
+          </div>
+          
+            {/* DOTS */}
               <div className="flex justify-center gap-2 mt-8">
                 {stays.map((_, i) => (
                   <div
@@ -132,9 +162,6 @@ export default function Stay() {
                   />
                 ))}
               </div>
-            </div>
-          )}
-        </div>
 
         {/* ✅ NAV BUTTONS (desktop only) */}
         <div className="flex justify-center gap-4 md:gap-8 mt-10">

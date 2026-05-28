@@ -5,7 +5,7 @@ import Container from "../Container";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Vehicle = {
   _id: string;
@@ -19,6 +19,8 @@ type Vehicle = {
 export default function Vehicles() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -109,15 +111,36 @@ export default function Vehicles() {
               </p>
 
               {/* DESCRIPTION */}
-              <p className="text-body text-[16px] leading-relaxed text-gray-600 md:text-[18px]">
+              <p className="text-body text-[16px] leading-relaxed text-gray-600 md:text-[18px] md:leading-relaxed line-clamp-8 2xl:line-clamp-5">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
 
-          {/* ✅ MOBILE VIEW */}
-                <div className="md:hidden text-center">
+                {/* ✅ MOBILE VIEW */}
+                <div
+                  className="md:hidden text-center flex flex-col items-center overflow-hidden"
+                  onTouchStart={(e) => {
+                    touchStartX.current = e.targetTouches[0].clientX;
+                  }}
+                  onTouchMove={(e) => {
+                    touchEndX.current = e.targetTouches[0].clientX;
+                  }}
+                  onTouchEnd={() => {
+                    const distance = touchStartX.current - touchEndX.current;
+
+                    // swipe left
+                    if (distance > 50) {
+                      next();
+                    }
+
+                    // swipe right
+                    if (distance < -50) {
+                      prev();
+                    }
+                  }}
+                >
                   {vehicles.length > 0 && (
                     <div>
                       <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
@@ -129,12 +152,16 @@ export default function Vehicles() {
                             className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                           />
                         )}
+                        <div className="absolute top-5 left-5 rounded-full bg-white/90 px-5 py-2 text-[14px] font-medium text-black backdrop-blur-sm">
+                          {vehicles[index]?.tag}
+                        </div>
                       </div>
         
-                      <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-4">
-                        {vehicles[index]?.title}
-                      </h3>
+                      {/* TAG */}
 
+
+                    <div className="min-h-[210px] flex flex-col">
+    
                       <p className="mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
                         {vehicles[index]?.passengers}
                       </p>
@@ -142,6 +169,7 @@ export default function Vehicles() {
                       <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
                         {vehicles[index]?.description}
                       </p>
+                    </div>
         
                       {/* DOTS */}
                       <div className="flex justify-center gap-2 mt-8">
@@ -159,6 +187,7 @@ export default function Vehicles() {
                     </div>
                   )}
                 </div>
+              
 
         {/* NAVIGATION */}
         <div className="mt-10 flex justify-center gap-4 md:gap-8">

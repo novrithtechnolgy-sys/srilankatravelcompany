@@ -5,7 +5,7 @@ import Container from "../Container";
 import { urlFor } from "@/sanity/lib/image";
 import { client } from "@/sanity/lib/client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Guide = {
   _id: string;
@@ -18,7 +18,9 @@ type Guide = {
 export default function GuidesSection() {
   const [guides, setGuides] = useState<Guide[]>([]);
   const [index, setIndex] = useState(0);
-
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  
   // FETCH DATA
   useEffect(() => {
     const fetchData = async () => {
@@ -103,7 +105,7 @@ export default function GuidesSection() {
           </div>
 
           {/* GUIDES */}
-          <div className="hidden md:grid gap-8 grid-cols-1 md:grid-cols-3">
+          <div className="hidden md:grid gap-8 grid-cols-1 md:grid-cols-3 xl:">
             {visibleItems.map((guide) => (
               <div key={guide._id}>
                 {/* IMAGE */}
@@ -135,7 +137,28 @@ export default function GuidesSection() {
           </div>
 
           {/* ✅ MOBILE VIEW */}
-                  <div className="md:hidden text-center">
+            <div
+                className="md:hidden text-center flex flex-col items-center overflow-hidden"
+                onTouchStart={(e) => {
+                  touchStartX.current = e.targetTouches[0].clientX;
+                }}
+                onTouchMove={(e) => {
+                  touchEndX.current = e.targetTouches[0].clientX;
+                }}
+                onTouchEnd={() => {
+                  const distance = touchStartX.current - touchEndX.current;
+
+                  // swipe left
+                  if (distance > 50) {
+                    next();
+                  }
+
+                  // swipe right
+                  if (distance < -50) {
+                    prev();
+                  }
+                }}
+              >
                     {guides.length > 0 && (
                       <div>
                         <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Container from "../Container";
 
 const adventures = [
@@ -103,6 +103,8 @@ export default function AdventureCarousel() {
   const [activeIndex, setActiveIndex] = useState(2);
   const [animating, setAnimating] = useState(false);
   const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const getPosition = (index: number): PosKey => {
     const diff = index - activeIndex;
@@ -188,35 +190,109 @@ export default function AdventureCarousel() {
           </div>
 
           {/* MOBILE */}
-          <div className="md:hidden w-full">
-            <img
-              src={active.img}
-              className="w-full h-[360px] object-cover rounded-2xl"
-            />
-          </div>
+          <div
+            className="md:hidden w-full"
+            onTouchStart={(e) => {
+              touchStartX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchMove={(e) => {
+              touchEndX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchEnd={() => {
+              if (!touchStartX.current || !touchEndX.current) return;
 
-          {/* TEXT */}
-          <div className="mt-10 text-center max-w-[560px]">
-            <h2 className="text-body-header text-[22px] md:text-[24px] font-semibold text-[#1D4063] mb-4">
-              {active.title}
-            </h2>
-            <p className="text-body text-[16px] md:text-[18px] text-gray-600">{active.description}</p>
+              const distance = touchStartX.current - touchEndX.current;
+
+              // swipe left
+              if (distance > 50) {
+                go(1);
+              }
+
+              // swipe right
+              if (distance < -50) {
+                go(-1);
+              }
+            }}
+          >
+            <div className="overflow-hidden rounded-3xl">
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{
+                  transform: `translateX(-${activeIndex * 100}%)`,
+                }}
+              >
+                {adventures.map((adv) => (
+                  <div
+                    key={adv.id}
+                    className="min-w-full px-1"
+                  >
+                    <div className="relative">
+                      <img
+                        src={adv.img}
+                        alt={adv.title}
+                        className="w-full h-[380px] object-cover rounded-3xl"
+                      />
+                     </div>
+                      <div className="mt-10 text-center max-w-[560px] mx-auto">
+                        <h2 className="text-body-header text-[22px] md:text-[24px] font-semibold text-[#1D4063] mb-4">
+                          {adv.title}
+                        </h2>
+
+                        <p className="text-body text-[16px] md:text-[18px] text-gray-600">
+                          {adv.description}
+                        </p>
+                     
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             {/* DOTS */}
-            <div className="flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-2 mt-6">
               {adventures.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => go(i > activeIndex ? 1 : -1)}
-                  className="h-2 rounded-full"
-                  style={{
-                    width: i === activeIndex ? "28px" : "8px",
-                    background: i === activeIndex ? "#1D4063" : "#ccc",
-                  }}
+                  onClick={() => setActiveIndex(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === activeIndex
+                      ? "w-8 bg-[#1D4063]"
+                      : "w-2 bg-gray-300"
+                  }`}
                 />
               ))}
             </div>
           </div>
+
+              {/* TEXT */}
+              <div className="hidden md:flex mt-10 text-center max-w-[560px] h-[160px] flex-col">
+                
+                {/* TOP CONTENT */}
+                <div className="flex-1">
+                  <h2 className="text-body-header text-[22px] md:text-[24px] font-semibold text-[#1D4063] mb-4">
+                    {active.title}
+                  </h2>
+
+                  <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
+                    {active.description}
+                  </p>
+                </div>
+
+                {/* DOTS */}
+                <div className="flex justify-center gap-2 mt-8">
+                  {adventures.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => go(i > activeIndex ? 1 : -1)}
+                      className="h-2 rounded-full transition-all duration-300"
+                      style={{
+                        width: i === activeIndex ? "28px" : "8px",
+                        background: i === activeIndex ? "#1D4063" : "#ccc",
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
             <button onClick={() => go(-1)} className="md:hidden text-[25px] absolute left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white transition">
               ‹
             </button>

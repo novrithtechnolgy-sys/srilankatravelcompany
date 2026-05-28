@@ -2,7 +2,7 @@
 
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "../Container";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
@@ -21,6 +21,8 @@ type Testimonial = {
 export default function Testimonials() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const visible = 3;
 
@@ -90,24 +92,48 @@ export default function Testimonials() {
             <span className="text-[#1D4063]">Travelers Say</span>
           </h2>
 
-          {/* ================= MOBILE ================= */}
-          <div className="md:hidden">
-            {testimonials.length > 0 && (
-              <div className="max-w-md mx-auto text-left">
+         {/* ================= MOBILE ================= */}
+        <div
+          className="md:hidden overflow-hidden min-h-[310px]"
+          onTouchStart={(e) => {
+            touchStartX.current = e.targetTouches[0].clientX;
+          }}
+          onTouchMove={(e) => {
+            touchEndX.current = e.targetTouches[0].clientX;
+          }}
+          onTouchEnd={() => {
+            const distance = touchStartX.current - touchEndX.current;
 
+            // swipe left
+            if (distance > 50) {
+              nextMobile();
+            }
+
+            // swipe right
+            if (distance < -50) {
+              prevMobile();
+            }
+          }}
+        >
+          {testimonials.length > 0 && (
+            <div className="max-w-md mx-auto text-left flex flex-col justify-between">
+
+              <div>
                 {/* Stars */}
-                <div className="flex gap-1 text-orange-500 mb-4">
+                <div className="flex gap-1 text-orange-500 mb-4 ">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={18} fill="currentColor" />
                   ))}
                 </div>
 
                 {/* Text */}
-                <p className="text-body text-gray-700 text-[16px] leading-relaxed mb-4">
+                <p className="text-body text-gray-700 text-[16px] leading-relaxed mb-6">
                   {testimonials[index]?.text}
                 </p>
+              </div>
 
-                {/* User */}
+              {/* User */}
+              <div>
                 <div className="flex items-center gap-3">
                   {testimonials[index]?.avatar && (
                     <Image
@@ -115,7 +141,7 @@ export default function Testimonials() {
                       alt={testimonials[index].name}
                       width={45}
                       height={45}
-                      className="rounded-full object-cover h-8 w-8"
+                      className="rounded-full object-cover h-10 w-10"
                     />
                   )}
 
@@ -123,29 +149,30 @@ export default function Testimonials() {
                     <p className="font-semibold text-gray-900">
                       {testimonials[index]?.name}
                     </p>
+
                     <p className="text-sm text-gray-500">
                       {testimonials[index]?.country}
                     </p>
                   </div>
                 </div>
-
-                {/* DOTS */}
-                <div className="flex justify-center gap-2 mt-8">
+              </div>
+            </div>
+          )}
+        </div>
+            {/* DOTS */}
+                <div className="md:hidden flex justify-center gap-2 mt-8">
                   {testimonials.map((_, i) => (
                     <div
                       key={i}
-                      className={`h-2 rounded-full ${
+                      className={`h-2 rounded-full transition-all duration-300 ${
                         i === index
-                          ? "w-4 bg-[#1D4063]"
+                          ? "w-5 bg-[#1D4063]"
                           : "w-2 bg-gray-300"
                       }`}
                     />
                   ))}
                 </div>
-              </div>
-            )}
-          </div>
-                          {/* ARROWS */}
+            {/* ARROWS */}
             <div className="md:hidden flex justify-center gap-4 md:gap-8 mt-10">
               <button
                 onClick={prev}
