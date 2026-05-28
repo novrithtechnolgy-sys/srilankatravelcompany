@@ -127,12 +127,12 @@ export default function ExperienceGrid() {
                       </div>
 
                       {/* TITLE */}
-                      <h4 className=" text-[24px] md:text-[26px] text-[#1E3355] text-body-header mb-4">
+                      <h4 className=" text-[24px] md:text-[26px] text-[#1E3355] text-body-header mb-4 line-clamp-1">
                         {item.title}
                       </h4>
 
                       {/* DESC */}
-                      <p className="text-body text-[15px] md:text-[17px] text-gray-600 leading-relaxed mb-4">
+                      <p className="text-body text-[15px] md:text-[17px] text-gray-600 leading-relaxed mb-4 line-clamp-2">
                         {item.etc}
                       </p>
 
