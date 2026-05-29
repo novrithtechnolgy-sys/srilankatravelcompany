@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Container from "../Container";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -20,6 +20,8 @@ export default function StayBeforeJourney({
   stays = [],
 }: Props) {
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const visible = stays.slice(index, index + 3);
 
@@ -87,7 +89,28 @@ export default function StayBeforeJourney({
           </div>
 
           {/* MOBILE */}
-          <div className="text-center md:hidden">
+          <div
+            className="md:hidden text-center flex flex-col items-center overflow-hidden"
+            onTouchStart={(e) => {
+              touchStartX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchMove={(e) => {
+              touchEndX.current = e.targetTouches[0].clientX;
+            }}
+            onTouchEnd={() => {
+              const distance = touchStartX.current - touchEndX.current;
+
+              // swipe left
+              if (distance > 50) {
+                next();
+              }
+
+              // swipe right
+              if (distance < -50) {
+                prev();
+              }
+            }}
+          >
             {stays.length > 0 && (
               <div>
                 <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
@@ -98,31 +121,32 @@ export default function StayBeforeJourney({
                     className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                   />
                 </div>
-
+              <div className="min-h-[120px] flex flex-col">
                 <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3">
                   {stays[index].title}
                 </h3>
 
-                <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
+                <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2 line-clamp-3">
                   {stays[index].desc}
                 </p>
-
-                {/* DOTS */}
-                <div className="mt-8 flex justify-center gap-2">
-                  {stays.map((_, i) => (
-                    <div
-                      key={i}
-                      className={`h-2 rounded-full transition-all ${
-                        i === index
-                          ? "w-4 bg-blue-900"
-                          : "w-2 bg-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
+              </div>
               </div>
             )}
           </div>
+
+          {/* DOTS */}
+            <div className="mt-8 flex justify-center gap-2">
+              {stays.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-2 rounded-full transition-all ${
+                  i === index
+                    ? "w-4 bg-blue-900"
+                    : "w-2 bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>          
 
           {/* NAV */}
           <div className="mt-10 flex justify-center gap-4 md:gap-8">
