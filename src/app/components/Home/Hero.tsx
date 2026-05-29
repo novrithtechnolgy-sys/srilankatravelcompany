@@ -27,7 +27,7 @@ export default function Hero() {
           <div className="flex flex-col md:flex-row gap-10 items-center justify-center  md:items-end h-full w-full">
 
             {/* LEFT CONTENT */}
-            <div className="md:w-2/3 text-center md:text-left">
+            <div className="md:w-2/3 text-center md:text-left ">
               <h1 className="text-hero 2xl:text-[78px] lg:text-[54px] md:text-[38px] text-[36px] text-white">
                 Experience the Raw Soul
                 <br />
