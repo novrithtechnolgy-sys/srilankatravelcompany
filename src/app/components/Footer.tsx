@@ -29,6 +29,7 @@ export default function Footer() {
 
         {/* LEFT - LOGO */}
         <div>
+          <a href="/" target="" rel="noopener noreferrer">
             <Image
               src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777282561/Group_tsudvb.png" // replace with your image
               alt="Logo"
@@ -36,6 +37,7 @@ export default function Footer() {
               height={50}
               className="object-contain mb-4 h-[80px] w-[150px]"
             />
+          </a>
 
           <p className="text-sm text-white/80 leading-relaxed max-w-xs">
             Crafting premium, editorial-grade travel experiences across the island of Sri Lanka since 2010.
@@ -47,11 +49,11 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-white/80">
-            <li>Home</li>
-            <li>About</li>
-            <li>Tours</li>
-            <li>Accommodation</li>
-            <li>Contact Us</li>
+            <li><a href="/" className="hover:text-[#FFD700] transition-colors">Home</a></li>
+            <li><a href="/about" className="hover:text-[#FFD700] transition-colors">About</a></li>
+            <li><a href="/tours" className="hover:text-[#FFD700] transition-colors">Tours</a></li>
+            <li><a href="/accommodation" className="hover:text-[#FFD700] transition-colors">Accommodation</a></li>
+            <li><a href="/contact" className="hover:text-[#FFD700] transition-colors">Contact Us</a></li>
           </ul>
           </div>
         </div>
@@ -93,9 +95,15 @@ export default function Footer() {
         </div>
 
       {/* Divider */}
-      <div className="border-t border-white/20 mt-8 md:mt-16 pt-6 text-center text-sm text-white/70 z-[20] relative">
+      <div className="flex flex-col md:flex-row justify-center md:justify-between w-full border-t border-white/20 mt-8 md:mt-16 pt-6 text-center text-sm text-white/70 z-[20] relative">
+      <p className="text-center md:text-left"> 
         © 2026 SRI LANKA TOUR COMPANY. ALL RIGHTS RESERVED.
-      </div>
+      </p>
+      <p className="text-center md:text-right text-sm text-white/70">
+        DEVELOPED BY{" "}
+        <span className="text-white"><a href="https://www.novrithtechnology.com" className="font-bold hover:underline">NOVRITH TECHNOLOGY</a></span>
+      </p>
+    </div>
       </Container>
     </footer>
   );

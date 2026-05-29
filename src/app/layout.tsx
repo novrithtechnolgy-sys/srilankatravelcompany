@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Belleza, Quicksand } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const belleza = Belleza({
   subsets: ["latin"],
@@ -116,6 +117,7 @@ export default function RootLayout({
       className={`${belleza.variable} ${quicksand.variable}h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
+      <WhatsAppButton />
       <Footer />
     </html>
   );
