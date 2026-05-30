@@ -43,7 +43,7 @@ export default function WhyChoose() {
       <Container className="relative z-10 text-center">
 
         {/* Label */}
-        <span className="inline-block text-label font-normal text-[10px] md:text-[14px] tracking-widest bg-gray-400/70 md:bg-gray-300 text-black md:text-gray-700 px-4 py-1 rounded-full mb-4 z-30">
+        <span className="inline-block text-label font-bold md:font-normal text-[10px] md:text-[14px] tracking-widest bg-gray-400/70 md:bg-gray-300 text-black md:text-gray-700 px-4 py-1 rounded-full mb-4 z-30">
           WHY US
         </span>
 
