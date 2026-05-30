@@ -193,14 +193,14 @@ export default function Vehicles() {
         <div className="mt-10 flex justify-center gap-4 md:gap-8">
           <button
             onClick={prev}
-            className="flex h-10 w-10 items-center justify-center rounded-full border"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063] disabled:opacity-40"
           >
             <ChevronLeft size={18} />
           </button>
 
           <button
             onClick={next}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-900 text-white"
+            className="w-10 h-10 flex items-center justify-center rounded-full  bg-[#1D4063] text-white disabled:opacity-40"
           >
             <ChevronRight size={18} />
           </button>

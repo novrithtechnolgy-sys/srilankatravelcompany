@@ -203,14 +203,14 @@ export default function GuidesSection() {
           <div className="mt-10 flex justify-center gap-4 md:gap-8">
             <button
               onClick={prev}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-[#1D4063] transition hover:bg-[#1D4063] hover:text-white"
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063] disabled:opacity-40"
             >
               <ChevronLeft size={20} />
             </button>
 
             <button
               onClick={next}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1D4063] text-white transition hover:bg-[#16324d]"
+              className="w-10 h-10 flex items-center justify-center rounded-full  bg-[#1D4063] text-white disabled:opacity-40"
             >
               <ChevronRight size={20} />
             </button>
