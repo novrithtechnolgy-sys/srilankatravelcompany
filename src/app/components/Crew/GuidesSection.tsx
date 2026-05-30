@@ -175,7 +175,7 @@ export default function GuidesSection() {
                         <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-4">
                           {guides[index]?.name}
                         </h3>
-                          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
+                          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#1D4063]">
                             {guides[index]?.role}
                           </p>
                         <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
@@ -189,7 +189,7 @@ export default function GuidesSection() {
                               key={i}
                               className={`h-2 rounded-full transition-all ${
                                 i === index
-                                  ? "w-4 bg-blue-900"
+                                  ? "w-4 bg-[#1D4063]"
                                   : "w-2 bg-gray-300"
                               }`}
                             />

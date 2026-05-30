@@ -93,7 +93,7 @@ export default function RelaxAndResort() {
                 )}
               </div>
 
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-4">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1D4063] font-semibold mb-4">
                 {item.title}
               </h3>
 
@@ -140,7 +140,7 @@ export default function RelaxAndResort() {
                 )}
               </div>
               <div className="min-h-[120px] flex flex-col">
-              <h3 className="text-body-header text-[24px] text-[#1E3355] font-semibold mb-4 z-50">
+              <h3 className="text-body-header text-[24px] text-[#1D4063] font-semibold mb-4 z-50">
                 {stays[index]?.title}
               </h3>
 
@@ -156,7 +156,7 @@ export default function RelaxAndResort() {
                     key={i}
                     className={`h-2 rounded-full transition-all ${
                       i === index
-                        ? "w-4 bg-blue-900"
+                        ? "w-4 bg-[#1D4063]"
                         : "w-2 bg-gray-300"
                     }`}
                   />
@@ -177,7 +177,7 @@ export default function RelaxAndResort() {
 
           <button
             onClick={next}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-900 text-white z-40"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1D4063] text-white z-40"
           >
             <ChevronRight size={18} />
           </button>

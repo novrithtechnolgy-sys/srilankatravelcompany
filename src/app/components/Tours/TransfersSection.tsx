@@ -62,7 +62,7 @@ export default function TransfersSection() {
                   src={urlFor(item.image).url()}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition duration-500"
+                  className="object-cover hover:scale-105 transition duration-500"
                 />
               </div>
 
