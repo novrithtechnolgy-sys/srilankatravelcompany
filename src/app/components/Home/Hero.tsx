@@ -50,7 +50,7 @@ export default function Hero() {
 
                 <Button
                  variant="outline"
-                  href="https://wa.me/1234567890?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
+                  href="https://wa.me/+94771234567?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
                 >
                   Contact via WhatsApp
                 </Button>

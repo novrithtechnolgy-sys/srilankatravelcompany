@@ -37,7 +37,7 @@ export default function Experience() {
                 highlight="Zero Regrets."
                 subtitle=" We have mapped out the most efficient and soul-stirring routes across the island so you can experience the best of Sri Lanka in a single sunrise to sunset journey."
                 buttonText="WhatsApp Us  →"
-                buttonHref="https://wa.me/1234567890?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
+                buttonHref="https://wa.me/+94771234567?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
             />
             <ExperienceGrid />
             <TransfersSection />
@@ -46,7 +46,7 @@ export default function Experience() {
                 highlight="Do Not"
                 subtitle="Your next great story is just a sunrise away. Let’s make it legendary."
                 buttonText="WhatsApp"
-                buttonHref="https://wa.me/1234567890?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
+                buttonHref="https://wa.me/+94771234567?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
                 backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777735607/de5c741a9ae4efbdf1c702989446def35a7a0e87_1_i3vtuq.webp"
             />
 
