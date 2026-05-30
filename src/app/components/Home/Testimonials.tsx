@@ -83,7 +83,7 @@ export default function Testimonials() {
         <div className="relative z-10">
 
           {/* TOP */}
-          <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 px-4 py-1 rounded-full inline-block mb-4">
+          <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full inline-block mb-4">
             TESTIMONIALS
           </span>
 
