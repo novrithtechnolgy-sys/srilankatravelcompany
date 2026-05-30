@@ -28,7 +28,7 @@ export default function StayExpiriance() {
           <div className="md:w-3/2 text-center md:text-left order-1 md:order-2">
 
             {/* Tag */}
-            <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 md:bg-gray-200 text-gray-900 md:text-gray-600 px-4 py-1 rounded-full mb-4 z-80">
+            <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest font-bold bg-gray-300 md:bg-gray-200 text-black md:text-gray-600 px-4 py-1 rounded-full mb-4 z-80">
               Stay Experience
             </span>
 

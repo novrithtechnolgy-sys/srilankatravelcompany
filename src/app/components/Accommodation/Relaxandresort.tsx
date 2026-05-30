@@ -140,7 +140,7 @@ export default function RelaxAndResort() {
                 )}
               </div>
               <div className="min-h-[120px] flex flex-col">
-              <h3 className="text-body-header text-[24px] text-[#1D4063] font-semibold mb-4 z-50">
+              <h3 className="text-body-header text-[24px] text-[#1D4063] font-semibold mb-4 z-40">
                 {stays[index]?.title}
               </h3>
 

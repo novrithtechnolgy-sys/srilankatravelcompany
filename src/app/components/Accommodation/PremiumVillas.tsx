@@ -57,6 +57,7 @@ export default function PremiumVillas() {
   return (
     <section className="py-10 md:py-20 text-center">
       {/* TOP */}
+      <Container>
       <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
         Premium Villas
       </span>
@@ -66,11 +67,11 @@ export default function PremiumVillas() {
         <span className="text-[#1E3355]">of Private Luxury</span>
       </h2>
 
-      <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-8 md:mb-16">
+      <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[400px] md:max-w-2xl mx-auto mb-8 md:mb-16">
         These exclusive properties are managed and marketed by Digital Escapes to ensure a seamless and high-end experience for every guest.
       </p>
 
-      <Container>
+      
 
         {/* ✅ DESKTOP VIEW */}
         <div className="hidden md:grid md:grid-cols-3 gap-8 text-left">
@@ -82,7 +83,7 @@ export default function PremiumVillas() {
                     src={urlFor(item.image).url()}
                     alt={item.title}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out w-full"
                   />
                 )}
               </div>
@@ -123,13 +124,13 @@ export default function PremiumVillas() {
           >
           {stays.length > 0 && (
             <div>
-              <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
+              <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6 w-full">
                 {stays[index]?.image && (
                   <Image
                     src={urlFor(stays[index].image).url()}
                     alt={stays[index].title}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out "
                   />
                 )}
               </div>
