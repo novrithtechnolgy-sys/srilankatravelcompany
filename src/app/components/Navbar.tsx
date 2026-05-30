@@ -122,7 +122,7 @@ export default function Navbar() {
                       className={clsx(
                         "relative pb-1 transition-all",
                         pathname === item.href
-                          ? "text-blue-900 font-semibold"
+                          ? "text-bg-[#1D4063] font-semibold"
                           : "text-gray-700 hover:text-blue-500"
                       )}
                     >
