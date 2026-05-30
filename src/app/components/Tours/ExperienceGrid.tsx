@@ -101,7 +101,7 @@ export default function ExperienceGrid() {
                 </div>
 
                 {/* Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
                   {items.map((item) => (
                     <div
@@ -109,7 +109,7 @@ export default function ExperienceGrid() {
                       className="group"
                     >
                       {/* IMAGE */}
-                      <div className="relative h-[240px] md:h-[360px] rounded-[24px] overflow-hidden mb-6">
+                      <div className="relative h-[240px] md:h-[300px] rounded-[24px] overflow-hidden mb-6">
                         
                         {item.image && (
                           <Image
@@ -127,7 +127,7 @@ export default function ExperienceGrid() {
                       </div>
 
                       {/* TITLE */}
-                      <h4 className=" text-[24px] md:text-[26px] text-[#1E3355] text-body-header mb-4 line-clamp-1">
+                      <h4 className=" text-[24px] md:text-[26px] text-[#1E3355] text-body-header mb-4 line-clamp-2">
                         {item.title}
                       </h4>
 

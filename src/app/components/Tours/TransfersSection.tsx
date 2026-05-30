@@ -53,11 +53,11 @@ export default function TransfersSection() {
       </p>
 
       <Container>
-        <div className="grid md:grid-cols-3 gap-8 text-left">
+        <div className="grid md:grid-cols-4 gap-8 text-left">
           {data.map((item) => (
             <div key={item._id}>
               {/* IMAGE */}
-              <div className="relative h-[220px] md:h-[360px] rounded-[20px] overflow-hidden mb-6">
+              <div className="relative h-[220px] md:h-[300px] rounded-[20px] overflow-hidden mb-6">
                 <Image
                   src={urlFor(item.image).url()}
                   alt={item.title}
@@ -67,7 +67,7 @@ export default function TransfersSection() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1E3355] font-semibold mb-4">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1E3355] font-semibold mb-4 line-clamp-1">
                 {item.title}
               </h3>
 
@@ -79,7 +79,7 @@ export default function TransfersSection() {
               {/* LINK */}
               {item.slug && (
                 <Link
-                  href={`/transfers/${item.slug.current}`}
+                  href={`/transfers/bandaranaike-international-airport-pickups`}
                   className="text-orange-500 text-sm font-medium flex items-center gap-1"
                 >
                   Learn More <span>→</span>

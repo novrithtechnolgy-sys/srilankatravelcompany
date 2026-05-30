@@ -39,13 +39,23 @@ export default function Footer() {
             />
           </a>
 
-          <p className="text-sm text-white/80 leading-relaxed max-w-xs">
-            Crafting premium, editorial-grade travel experiences across the island of Sri Lanka since 2010.
+          <p className="text-sm text-white/80 leading-relaxed max-w-xs pb-4">
+            Crafting premium, editorial-grade travel experiences across the island of Sri Lanka.
           </p>
+          {/* <p className="text-sm text-white/80 leading-relaxed max-w-xs">
+            Phone : +94 11 234 5678
+          </p>
+          <p className="text-sm text-white/80 leading-relaxed max-w-xs">
+            Email : hello@srilankatourcompany.com
+          </p>
+          <p className="text-sm text-white/80 leading-relaxed max-w-xs">
+            Location : 22 Marikkar St, Dharga Town 12090, Sri Lanka
+          </p> */}
+
         </div>
 
         {/* QUICK LINKS */}
-        <div className="flex flex-col gap-2 md:justify-center md:items-center">
+        <div className="flex flex-col gap-2 md:items-center">
         <div>
           <h3 className="font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-white/80">
@@ -53,13 +63,14 @@ export default function Footer() {
             <li><a href="/about" className="hover:text-[#FFD700] transition-colors">About</a></li>
             <li><a href="/tours" className="hover:text-[#FFD700] transition-colors">Tours</a></li>
             <li><a href="/accommodation" className="hover:text-[#FFD700] transition-colors">Accommodation</a></li>
+            <li><a href="/crew" className="hover:text-[#FFD700] transition-colors">Crew</a></li>
             <li><a href="/contact" className="hover:text-[#FFD700] transition-colors">Contact Us</a></li>
           </ul>
           </div>
         </div>
 
         {/* TOURS */}
-        <div className="flex flex-col gap-2 md:justify-center md:items-center">
+        <div className="flex flex-col gap-2 md:items-center">
         <div>
           <h3 className="font-semibold mb-4">Tours</h3>
           <ul className="space-y-2 text-white/80">
