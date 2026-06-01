@@ -62,8 +62,8 @@ export default function Footer() {
             <li><a href="/" className="hover:text-[#FFD700] transition-colors">Home</a></li>
             <li><a href="/about" className="hover:text-[#FFD700] transition-colors">About</a></li>
             <li><a href="/tours" className="hover:text-[#FFD700] transition-colors">Tours</a></li>
-            <li><a href="/accommodation" className="hover:text-[#FFD700] transition-colors">Accommodation</a></li>
             <li><a href="/crew" className="hover:text-[#FFD700] transition-colors">Crew</a></li>
+            <li><a href="/accommodation" className="hover:text-[#FFD700] transition-colors">Accommodation</a></li>
             <li><a href="/contact" className="hover:text-[#FFD700] transition-colors">Contact Us</a></li>
           </ul>
           </div>

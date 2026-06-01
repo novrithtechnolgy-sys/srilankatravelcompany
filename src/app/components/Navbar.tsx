@@ -12,8 +12,8 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Tours", href: "/tours" },
-  { name: "Accommodation", href: "/accommodation" },
   { name: "Crew", href: "/crew" },
+  { name: "Accommodation", href: "/accommodation" },
 ];
 
 export default function Navbar() {
