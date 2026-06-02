@@ -41,23 +41,34 @@ export default function Stay() {
   }, []);
 
   // Desktop visible items
-  const visibleItems = stays.slice(index, index + 3);
+const visibleItems =
+  stays.length <= 3
+    ? stays
+    : stays.slice(index, index + 3);
 
   // Loop navigation
-  const next = () => {
-    setIndex((prev) => (prev + 1) % stays.length);
-  };
+const next = () => {
+  const maxIndex = Math.max(0, stays.length - 3);
 
-  const prev = () => {
-    setIndex((prev) =>
-      prev === 0 ? stays.length - 1 : prev - 1
-    );
-  };
+  setIndex((prev) =>
+    prev >= maxIndex ? 0 : prev + 1
+  );
+};
+
+const prev = () => {
+  const maxIndex = Math.max(0, stays.length - 3);
+
+  setIndex((prev) =>
+    prev <= 0 ? maxIndex : prev - 1
+  );
+};
+
+  const totalDots = Math.max(1, stays.length - 2);
 
   return (
     <section className="py-10 md:py-20 text-center">
       {/* TOP */}
-      <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+      <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 text-black font-bold md:bg-gray-200 md:text-gray-600 px-4 py-1 rounded-full mb-4 z-10">
         STAY WITH US
       </span>
 
@@ -150,18 +161,18 @@ export default function Stay() {
           </div>
           
             {/* DOTS */}
-              <div className="flex justify-center gap-2 mt-8">
-                {stays.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-2 rounded-full transition-all ${
-                      i === index
-                        ? "w-4 bg-[#1D4063]"
-                        : "w-2 bg-gray-300"
-                    }`}
-                  />
-                ))}
-              </div>
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: totalDots }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === index
+                      ? "w-6 bg-[#1D4063]"
+                      : "w-2 bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
 
         {/* ✅ NAV BUTTONS (desktop only) */}
         <div className="flex justify-center gap-4 md:gap-8 mt-10">

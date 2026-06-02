@@ -9,21 +9,21 @@ const adventures = [
     title: "Wildlife Safari",
     description:
       "Track majestic elephants through misty jungles on an unforgettable jeep safari at dawn, guided by expert naturalists.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1778238008/Minneriya-National-Park-scaled_phbyrv.jpg",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780383602/Leopard--Sri-Lanka--On-The-Go-Tours-325451478099864_qm5lp9.jpg",
   },
   {
     id: 2,
     title: "Cultural Heritage",
     description:
       "Step into the sacred silence of ancient stupas, draped in colorful prayer flags, alive with centuries of devotion.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1779688009/5491ab34e53267e9bf48f611c08361662bbd096b_1_imswja.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780382887/Sri-Lanka-Cultural-Tours-Polonnaruwa_saeiwz.jpg",
   },
   {
     id: 3,
     title: "Beach & Wellness",
     description:
       "Escape to the pristine southern coastline to rejuvenate your spirit with a day of golden sands, tranquil turquoise waters, and traditional wellness experiences.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777743074/de3d80a22ba8792ea930184a59be3f8da98b7346_1_i9g8ya.webp",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780383205/1000_1767425757_z5yvsb.jpg",
   },
   {
     id: 4,
@@ -36,8 +36,8 @@ const adventures = [
     id: 5,
     title: "Luxury Transfer",
     description:
-      "Travel between wonders in curated comfort — private vehicles, expert drivers, and seamless door-to-door service.",
-    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777743072/5f516dcd3841dd40ef46559dc36f355b4d8f7d0a_2_fombkn.webp",
+      "Travel between wonders in curated comfort with private vehicles, expert drivers, and seamless door-to-door service.",
+    img: "https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780383489/b3_n5negd.jpg",
   },
 ];
 
@@ -144,12 +144,12 @@ export default function AdventureCarousel() {
     >
       <Container>
         <div className="flex flex-col items-center justify-center">
-          <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
+          <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 text-black font-bold md:bg-gray-200 md:text-gray-600 px-4 py-1 rounded-full z-10 mb-4">
             EXPLORE
           </span>
 
           <h1 className="text-section text-[34px] md:text-[40px] xl:text-[64px] text-center font-semibold mb-8 md:mb-16">
-            <span className="text-[#C8591A]">Find Your </span>
+            <span className="text-orange-500">Find Your </span>
             <span className="text-[#1D4063]">Perfect Adventure</span>
           </h1>
 

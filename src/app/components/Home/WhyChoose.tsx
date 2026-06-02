@@ -28,10 +28,10 @@ const features = [
 export default function WhyChoose() {
   return (
     <section className="relative py-10 md:py-20 overflow-hidden">
-       <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-20" />
-        <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent z-20" />
+       <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-[-1]" />
+        <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent z-[-1]" />
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-[-10]">
         <img
           src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777284152/47409609478ffc7437dec7602aaabc90838092f6_c5hb6h.webp" // replace with your image
           className="w-full h-full object-cover"
@@ -43,7 +43,7 @@ export default function WhyChoose() {
       <Container className="relative z-10 text-center">
 
         {/* Label */}
-        <span className="inline-block text-label font-bold md:font-normal text-[10px] md:text-[14px] tracking-widest bg-gray-400/70 md:bg-gray-300 text-black md:text-gray-800 px-4 py-1 rounded-full mb-4 z-30">
+        <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 text-black font-bold md:bg-gray-200 md:text-gray-800 px-4 py-1 rounded-full mb-4 z-10">
           WHY US
         </span>
 

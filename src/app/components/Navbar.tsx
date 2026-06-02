@@ -59,14 +59,14 @@ export default function Navbar() {
                 <Image
                   src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1778244094/Frame_344_sw1i3o.png"
                   alt="Logo"
-                  width={140}
-                  height={140}
+                  width={540}
+                  height={540}
                   className="h-8 md:h-10 w-auto "
                 />
               </Link>
 
               {/* Desktop Nav */}
-              <div className="hidden md:flex items-center gap-2 bg-[#efe7d7] px-2 py-1 rounded-full">
+              <div className="hidden md:flex items-center gap-2 bg-white px-2 py-1 rounded-full">
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href;
 

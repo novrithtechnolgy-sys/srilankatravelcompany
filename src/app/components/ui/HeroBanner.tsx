@@ -23,7 +23,7 @@ export default function HeroBanner({
   backgroundImage,
 }: HeroBannerProps) {
   return (
-    <section className="relative w-full py-10 md:py-20 px-4 "> 
+    <section className="relative w-full pb-10 md:pb-20 px-4 "> 
       <div className="relative w-full h-[380px] md:h-[540px] rounded-[30px] overflow-hidden">
       {/* Background Image */}
       <Image
@@ -35,7 +35,7 @@ export default function HeroBanner({
       />
     <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-30" />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white/40" />
+      <div className="absolute inset-0 bg-white/20 bg-gradient-to-b from-white via-white/10 to-transparent" />
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">

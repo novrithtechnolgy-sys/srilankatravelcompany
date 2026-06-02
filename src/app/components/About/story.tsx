@@ -7,9 +7,9 @@ export default function AboutStory() {
     <section className="relative py-10 md:py-20">
 
       {/* Background watermark (optional shape) */}
-      <div className="absolute inset-0 opacity-20 bg-[url('https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777284152/47409609478ffc7437dec7602aaabc90838092f6_c5hb6h.webp')] bg-center bg-no-repeat bg-cover pointer-events-none" />
-       <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-30" />
-       <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent z-30" />
+      <div className="absolute inset-0 opacity-20 bg-[url('https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777284152/47409609478ffc7437dec7602aaabc90838092f6_c5hb6h.webp')] bg-center bg-no-repeat bg-cover pointer-events-none z-[-10]" />
+       <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-[-1]" />
+       <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent z-[-1]" />
       <Container>
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center ">

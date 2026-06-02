@@ -64,17 +64,17 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative pt-10 md:pt-20 text-center overflow-hidden">
+    <section className="relative pt-10 md:py-20 text-center overflow-hidden">
 
       {/* Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-[-10]">
         <Image
           src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777279565/d7569a81c7df0661cf1f07c2488e521e37597369_3_hivpvc.jpg"
           alt="bg"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-white/80" />
+        <div className="absolute inset-0 bg-white/70" />
         <div className="absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent" />
         <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent" />
       </div>
@@ -83,7 +83,7 @@ export default function Testimonials() {
         <div className="relative z-10">
 
           {/* TOP */}
-          <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full inline-block mb-4">
+          <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 text-black font-bold md:bg-gray-200 md:text-gray-600 px-4 py-1 rounded-full mb-4 z-10">
             TESTIMONIALS
           </span>
 

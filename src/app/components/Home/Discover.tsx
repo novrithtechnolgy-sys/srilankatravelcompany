@@ -7,9 +7,9 @@ export default function Discover() {
     <section className="relative py-10 md:py-20">
 
       {/* Background watermark (optional shape) */}
-      <div className="absolute inset-0 opacity-5 bg-[url('https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777115215/eeb0f91a8c9b412fc85fba44e627f8ae322a8a7e_svlye9.webp')] bg-center bg-no-repeat bg-cover bg-top pointer-events-none" />
-       <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-30" />
-        <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent z-30" />
+      <div className="absolute inset-0 opacity-10 bg-[url('https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777115215/eeb0f91a8c9b412fc85fba44e627f8ae322a8a7e_svlye9.webp')] bg-center bg-no-repeat bg-cover bg-top pointer-events-none z-[-10]" />
+       <div className="pointer-events-none absolute top-0 h-52 w-full bg-gradient-to-b from-white to-transparent z-[-1]" />
+        <div className="pointer-events-none absolute bottom-0 h-52 w-full bg-gradient-to-t from-white to-transparent z-[-1]" />
       <Container>
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center ">
@@ -28,7 +28,7 @@ export default function Discover() {
           <div className="md:w-3/2 text-center md:text-left order-1 md:order-2">
 
             {/* Tag */}
-            <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 text-black font-bold md:bg-gray-200 md:text-gray-600 px-4 py-1 rounded-full mb-4">
+            <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-300 text-black font-bold md:bg-gray-200 md:text-gray-600 px-4 py-1 rounded-full mb-4 z-10">
               DISCOVER
             </span>
 

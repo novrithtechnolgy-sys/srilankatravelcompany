@@ -53,11 +53,11 @@ export default function TransfersSection() {
       </p>
 
       <Container>
-        <div className="grid md:grid-cols-4 gap-8 text-left">
+        <div className="grid md:grid-cols-3 gap-8 text-left">
           {data.map((item) => (
             <div key={item._id}>
               {/* IMAGE */}
-              <div className="relative h-[220px] md:h-[300px] rounded-[20px] overflow-hidden mb-6">
+              <div className="relative h-[220px] md:h-[360px] rounded-[20px] overflow-hidden mb-6">
                 <Image
                   src={urlFor(item.image).url()}
                   alt={item.title}
