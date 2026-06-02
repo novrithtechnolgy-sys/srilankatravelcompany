@@ -63,7 +63,7 @@ export default function Vehicles() {
   };
 
   return (
-    <section className="pt-10 md:pt-20">
+    <section className="py-10 md:py-20">
       <Container>
         {/* HEADER */}
         <div className="mx-auto max-w-5xl text-center">
