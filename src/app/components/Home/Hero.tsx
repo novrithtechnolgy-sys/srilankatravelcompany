@@ -45,7 +45,7 @@ export default function Hero() {
                 <Button 
                   href="/tours"
                 >
-                  Explore Tours →
+                  Explore Tours 
                 </Button>
 
                 <Button
