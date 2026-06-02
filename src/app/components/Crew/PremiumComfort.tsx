@@ -37,7 +37,7 @@ export default function PremiumComfort() {
     <section className="relative py-10 md:py-20 overflow-hidden">
 
       {/* Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-[-10]">
         <Image
           src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777352788/7b8ca57d715c334a145db1aaa2a0b901bd10dd68_fy4nmf.jpg"
           alt="background"

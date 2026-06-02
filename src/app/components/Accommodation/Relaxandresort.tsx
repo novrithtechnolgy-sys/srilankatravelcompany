@@ -19,7 +19,8 @@ type StayType = {
 
 export default function RelaxAndResort() {
   const [stays, setStays] = useState<StayType[]>([]);
-  const [index, setIndex] = useState(0);
+  const [desktopIndex, setDesktopIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   // Fetch data
@@ -41,23 +42,46 @@ export default function RelaxAndResort() {
   }, []);
 
   // Desktop visible items
-  const visibleItems = stays.slice(index, index + 3);
+const visibleItems = stays.slice(
+  desktopIndex,
+  desktopIndex + 3
+);
+
+stays[mobileIndex]
 
   // Loop navigation
-  const next = () => {
-    setIndex((prev) => (prev + 1) % stays.length);
-  };
+const nextDesktop = () => {
+  const maxIndex = Math.max(0, stays.length - 3);
 
-  const prev = () => {
-    setIndex((prev) =>
-      prev === 0 ? stays.length - 1 : prev - 1
-    );
-  };
+  setDesktopIndex((prev) =>
+    prev >= maxIndex ? 0 : prev + 1
+  );
+};
+
+const prevDesktop = () => {
+  const maxIndex = Math.max(0, stays.length - 3);
+
+  setDesktopIndex((prev) =>
+    prev <= 0 ? maxIndex : prev - 1
+  );
+};
+
+const nextMobile = () => {
+  setMobileIndex((prev) =>
+    (prev + 1) % stays.length
+  );
+};
+
+const prevMobile = () => {
+  setMobileIndex((prev) =>
+    prev === 0 ? stays.length - 1 : prev - 1
+  );
+};
 
   return (
     <section className="py-10 md:py-20 text-center relative overflow-hidden">
-        <div className="pointer-events-none absolute top-0 h-42 w-full bg-gradient-to-b from-white to-transparent z-0" />
-        <div className="pointer-events-none absolute bottom-0 h-42 w-full bg-gradient-to-t from-white to-transparent z-0" />
+        <div className="pointer-events-none absolute top-0 h-42 w-full bg-gradient-to-b from-white to-transparent z-[-1]" />
+        <div className="pointer-events-none absolute bottom-0 h-42 w-full bg-gradient-to-t from-white to-transparent z-[-1]" />
         {/* Background Image */}
         <div className="absolute inset-0 z-[-10]">
             <img
@@ -118,22 +142,22 @@ export default function RelaxAndResort() {
 
               // swipe left
               if (distance > 50) {
-                next();
+                nextMobile();
               }
 
               // swipe right
               if (distance < -50) {
-                prev();
+                prevMobile();
               }
             }}
           >
           {stays.length > 0 && (
             <div>
               <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
-                {stays[index]?.image && (
+                {stays[mobileIndex]?.image && (
                   <Image
-                    src={urlFor(stays[index].image).url()}
-                    alt={stays[index].title}
+                    src={urlFor(stays[mobileIndex].image).url()}
+                    alt={stays[mobileIndex].title}
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                   />
@@ -141,11 +165,11 @@ export default function RelaxAndResort() {
               </div>
               <div className="min-h-[120px] flex flex-col">
               <h3 className="text-body-header text-[24px] text-[#1D4063] font-semibold mb-4 z-40">
-                {stays[index]?.title}
+                {stays[mobileIndex]?.title}
               </h3>
 
               <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2 z-50 line-clamp-3">
-                {stays[index]?.desc}
+                {stays[mobileIndex]?.desc}
               </p>
               </div>
 
@@ -155,7 +179,7 @@ export default function RelaxAndResort() {
                   <div
                     key={i}
                     className={`h-2 rounded-full transition-all ${
-                      i === index
+                      i === mobileIndex
                         ? "w-4 bg-[#1D4063]"
                         : "w-2 bg-gray-300"
                     }`}
@@ -167,16 +191,33 @@ export default function RelaxAndResort() {
         </div>
 
         {/* ✅ NAV BUTTONS (desktop only) */}
-        <div className="flex justify-center gap-4 md:gap-8 mt-10 z-40">
+
+        <div className="md:hidden flex justify-center gap-4 md:gap-8 mt-10 z-40">
           <button
-            onClick={prev}
+            onClick={prevMobile}
             className="w-10 h-10 flex items-center justify-center rounded-full border z-40"
           >
             <ChevronLeft size={18} />
           </button>
 
           <button
-            onClick={next}
+            onClick={nextMobile}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1D4063] text-white z-40"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+
+        <div className="hidden md:flex justify-center gap-4 md:gap-8 mt-10 z-40">
+          <button
+            onClick={prevDesktop}
+            className="w-10 h-10 flex items-center justify-center rounded-full border z-40"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          <button
+            onClick={nextDesktop}
             className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1D4063] text-white z-40"
           >
             <ChevronRight size={18} />

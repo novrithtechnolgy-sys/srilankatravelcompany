@@ -17,7 +17,8 @@ type Guide = {
 
 export default function GuidesSection() {
   const [guides, setGuides] = useState<Guide[]>([]);
-  const [index, setIndex] = useState(0);
+  const [desktopIndex, setDesktopIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   
@@ -41,30 +42,45 @@ export default function GuidesSection() {
   }, []);
 
   // VISIBLE ITEMS
-  const visibleItems = guides.slice(index, index + 3);
+const visibleItems = guides.slice(
+  desktopIndex,
+  desktopIndex + 3
+);
 
-  // NEXT
-  const next = () => {
-    if (guides.length === 0) return;
+guides[mobileIndex]
 
-    setIndex((prev) =>
-      prev + 1 >= guides.length ? 0 : prev + 1
-    );
-  };
+const nextDesktop = () => {
+  const maxIndex = Math.max(0, guides.length - 3);
 
-  // PREV
-  const prev = () => {
-    if (guides.length === 0) return;
+  setDesktopIndex((prev) =>
+    prev >= maxIndex ? 0 : prev + 1
+  );
+};
 
-    setIndex((prev) =>
-      prev === 0 ? guides.length - 1 : prev - 1
-    );
-  };
+const prevDesktop = () => {
+  const maxIndex = Math.max(0, guides.length - 3);
+
+  setDesktopIndex((prev) =>
+    prev <= 0 ? maxIndex : prev - 1
+  );
+};
+
+const nextMobile = () => {
+  setMobileIndex((prev) =>
+    (prev + 1) % guides.length
+  );
+};
+
+const prevMobile = () => {
+  setMobileIndex((prev) =>
+    prev === 0 ? guides.length - 1 : prev - 1
+  );
+};
 
   return (
     <section className="relative overflow-hidden py-10 md:py-20">
       {/* BG */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-[-10]">
         <Image
           src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777352788/7b8ca57d715c334a145db1aaa2a0b901bd10dd68_fy4nmf.jpg"
           alt="background"
@@ -74,7 +90,7 @@ export default function GuidesSection() {
 
         <div className="absolute inset-0 bg-white/80" />
 
-        <div className="absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent " />
 
         <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent" />
       </div>
@@ -150,22 +166,22 @@ export default function GuidesSection() {
 
                   // swipe left
                   if (distance > 50) {
-                    next();
+                    nextMobile();
                   }
 
                   // swipe right
                   if (distance < -50) {
-                    prev();
+                    prevMobile();
                   }
                 }}
               >
                     {guides.length > 0 && (
                       <div>
                         <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
-                          {guides[index]?.image && (
+                          {guides[mobileIndex]?.image && (
                             <Image
-                              src={urlFor(guides[index].image).url()}
-                              alt={guides[index].name}
+                              src={urlFor(guides[mobileIndex].image).url()}
+                              alt={guides[mobileIndex].name}
                               fill
                               className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                             />
@@ -173,13 +189,13 @@ export default function GuidesSection() {
                         </div>
           
                         <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-4">
-                          {guides[index]?.name}
+                          {guides[mobileIndex]?.name}
                         </h3>
                           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#1D4063]">
-                            {guides[index]?.role}
+                            {guides[mobileIndex]?.role}
                           </p>
                         <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
-                          {guides[index]?.bio}
+                          {guides[mobileIndex]?.bio}
                         </p>
           
                         {/* DOTS */}
@@ -188,7 +204,7 @@ export default function GuidesSection() {
                             <div
                               key={i}
                               className={`h-2 rounded-full transition-all ${
-                                i === index
+                                i === mobileIndex
                                   ? "w-4 bg-[#1D4063]"
                                   : "w-2 bg-gray-300"
                               }`}
@@ -200,16 +216,33 @@ export default function GuidesSection() {
                   </div>
 
           {/* NAVIGATION */}
-          <div className="mt-10 flex justify-center gap-4 md:gap-8">
+
+          <div className="md:hidden mt-10 flex justify-center gap-4 md:gap-8">
             <button
-              onClick={prev}
+              onClick={prevMobile}
               className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063] disabled:opacity-40"
             >
               <ChevronLeft size={20} />
             </button>
 
             <button
-              onClick={next}
+              onClick={nextMobile}
+              className="w-10 h-10 flex items-center justify-center rounded-full  bg-[#1D4063] text-white disabled:opacity-40"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          <div className="hidden md:flex mt-10  justify-center gap-4 md:gap-8">
+            <button
+              onClick={prevDesktop}
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063] disabled:opacity-40"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <button
+              onClick={nextDesktop}
               className="w-10 h-10 flex items-center justify-center rounded-full  bg-[#1D4063] text-white disabled:opacity-40"
             >
               <ChevronRight size={20} />

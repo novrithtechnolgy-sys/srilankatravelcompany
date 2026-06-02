@@ -18,7 +18,8 @@ type Vehicle = {
 
 export default function Vehicles() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [index, setIndex] = useState(0);
+  const [desktopIndex, setDesktopIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0); 
 
@@ -42,25 +43,41 @@ export default function Vehicles() {
   }, []);
 
   // visible items
-  const visibleItems = vehicles.slice(index, index + 3);
+const visibleItems = vehicles.slice(
+  desktopIndex,
+  desktopIndex + 3
+);
+
+vehicles[mobileIndex]
 
   // next
-  const next = () => {
-    if (vehicles.length === 0) return;
+const nextDesktop = () => {
+  const maxIndex = Math.max(0, vehicles.length - 3);
 
-    setIndex((prev) =>
-      prev + 1 >= vehicles.length ? 0 : prev + 1
-    );
-  };
+  setDesktopIndex((prev) =>
+    prev >= maxIndex ? 0 : prev + 1
+  );
+};
 
-  // prev
-  const prev = () => {
-    if (vehicles.length === 0) return;
+const prevDesktop = () => {
+  const maxIndex = Math.max(0, vehicles.length - 3);
 
-    setIndex((prev) =>
-      prev === 0 ? vehicles.length - 1 : prev - 1
-    );
-  };
+  setDesktopIndex((prev) =>
+    prev <= 0 ? maxIndex : prev - 1
+  );
+};
+
+const nextMobile = () => {
+  setMobileIndex((prev) =>
+    (prev + 1) % vehicles.length
+  );
+};
+
+const prevMobile = () => {
+  setMobileIndex((prev) =>
+    prev === 0 ? vehicles.length - 1 : prev - 1
+  );
+};
 
   return (
     <section className="py-10 md:py-20">
@@ -132,28 +149,28 @@ export default function Vehicles() {
 
                     // swipe left
                     if (distance > 50) {
-                      next();
+                      nextMobile();
                     }
 
                     // swipe right
                     if (distance < -50) {
-                      prev();
+                      prevMobile();
                     }
                   }}
                 >
                   {vehicles.length > 0 && (
                     <div>
                       <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
-                        {vehicles[index]?.image && (
+                        {vehicles[mobileIndex]?.image && (
                           <Image
-                            src={urlFor(vehicles[index].image).url()}
-                            alt={vehicles[index].title}
+                            src={urlFor(vehicles[mobileIndex].image).url()}
+                            alt={vehicles[mobileIndex].title}
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                           />
                         )}
                         <div className="absolute top-5 left-5 rounded-full bg-white/90 px-5 py-2 text-[14px] font-medium text-black backdrop-blur-sm">
-                          {vehicles[index]?.tag}
+                          {vehicles[mobileIndex]?.tag}
                         </div>
                       </div>
         
@@ -163,11 +180,11 @@ export default function Vehicles() {
                     <div className="min-h-[210px] flex flex-col">
     
                       <p className="mb-4 text-[12px] font-semibold uppercase tracking-[2px] text-[#C86421]">
-                        {vehicles[index]?.passengers}
+                        {vehicles[mobileIndex]?.passengers}
                       </p>
         
                       <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2">
-                        {vehicles[index]?.description}
+                        {vehicles[mobileIndex]?.description}
                       </p>
                     </div>
         
@@ -177,7 +194,7 @@ export default function Vehicles() {
                           <div
                             key={i}
                             className={`h-2 rounded-full transition-all ${
-                              i === index
+                              i === mobileIndex
                                 ? "w-4 bg-blue-900"
                                 : "w-2 bg-gray-300"
                             }`}
@@ -190,16 +207,33 @@ export default function Vehicles() {
               
 
         {/* NAVIGATION */}
-        <div className="mt-10 flex justify-center gap-4 md:gap-8">
+
+        <div className="hidden md:flex mt-10 flex justify-center gap-4 md:gap-8">
           <button
-            onClick={prev}
+            onClick={prevDesktop}
             className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063] disabled:opacity-40"
           >
             <ChevronLeft size={18} />
           </button>
 
           <button
-            onClick={next}
+            onClick={nextDesktop}
+            className="w-10 h-10 flex items-center justify-center rounded-full  bg-[#1D4063] text-white disabled:opacity-40"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+        
+        <div className="md:hidden mt-10 flex justify-center gap-4 md:gap-8">
+          <button
+            onClick={prevMobile}
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-[#1D4063] disabled:opacity-40"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          <button
+            onClick={nextMobile}
             className="w-10 h-10 flex items-center justify-center rounded-full  bg-[#1D4063] text-white disabled:opacity-40"
           >
             <ChevronRight size={18} />

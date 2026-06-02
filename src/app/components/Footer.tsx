@@ -39,7 +39,7 @@ export default function Footer() {
             />
           </a>
 
-          <p className="text-sm text-white/80 leading-relaxed max-w-xs pb-4">
+          <p className="font-body text-[14px] md:text-[16px] text-white/80 leading-relaxed max-w-xs pb-4">
             Crafting premium, editorial-grade travel experiences across the island of Sri Lanka.
           </p>
           {/* <p className="text-sm text-white/80 leading-relaxed max-w-xs">
@@ -58,7 +58,7 @@ export default function Footer() {
         <div className="flex flex-col gap-2 md:items-center">
         <div>
           <h3 className="font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-white/80">
+          <ul className="space-y-2 font-body text-[14px] md:text-[16px] text-white/80">
             <li><a href="/" className="hover:text-[#FFD700] transition-colors">Home</a></li>
             <li><a href="/about" className="hover:text-[#FFD700] transition-colors">About</a></li>
             <li><a href="/tours" className="hover:text-[#FFD700] transition-colors">Tours</a></li>
@@ -73,7 +73,7 @@ export default function Footer() {
         <div className="flex flex-col gap-2 md:items-center">
         <div>
           <h3 className="font-semibold mb-4">Tours</h3>
-          <ul className="space-y-2 text-white/80">
+          <ul className="space-y-2 font-body text-[14px] md:text-[16px] text-white/80">
             <li>Wildlife & Safaris</li>
             <li>Heritage & Culture</li>
             <li>Beach & Wellness</li>
@@ -87,7 +87,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold mb-4">Newsletter</h3>
 
-          <p className="text-white/80 text-sm mb-4">
+          <p className="text-white/80 font-body text-[14px] md:text-[16px] mb-4">
             Subscribe for hidden gem locations and tour updates.
           </p>
 
@@ -108,11 +108,11 @@ export default function Footer() {
       {/* Divider */}
       <div className="flex flex-col md:flex-row justify-center md:justify-between w-full border-t border-white/20 mt-8 md:mt-16 pt-6 text-center text-sm text-white/70 z-[20] relative">
       <p className="text-center md:text-left"> 
-        © 2026 SRI LANKA TOUR COMPANY. ALL RIGHTS RESERVED.
+        © 2026 Sri Lanka Tour Company All rights reserved.
       </p>
       <p className="text-center md:text-right text-sm text-white/70">
-        DEVELOPED BY{" "}
-        <span className="text-white"><a href="https://www.novrithtechnology.com" className="font-bold hover:underline">NOVRITH TECHNOLOGY</a></span>
+        Powered by{" "}
+        <span className="text-white"><a href="https://www.novrithtechnology.com" className="font-bold hover:underline">Novrith Technology</a></span>
       </p>
     </div>
       </Container>

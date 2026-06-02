@@ -108,6 +108,9 @@ export default function ExperienceGrid() {
                       key={item._id}
                       className="group"
                     >
+                    <Link
+                        href={`/experience/${item.slug.current}`}
+                      >
                       {/* IMAGE */}
                       <div className="relative h-[240px] md:h-[300px] rounded-[24px] overflow-hidden mb-6">
                         
@@ -143,6 +146,7 @@ export default function ExperienceGrid() {
                       >
                         Learn More
                         <span>→</span>
+                      </Link>
                       </Link>
                     </div>
                   ))}
