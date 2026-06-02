@@ -55,7 +55,7 @@ export default function RelaxAndResort() {
   };
 
   return (
-    <section className="pt-10 md:pt-20 text-center relative overflow-hidden">
+    <section className="py-10 md:py-20 text-center relative overflow-hidden">
         <div className="pointer-events-none absolute top-0 h-42 w-full bg-gradient-to-b from-white to-transparent z-0" />
         <div className="pointer-events-none absolute bottom-0 h-42 w-full bg-gradient-to-t from-white to-transparent z-0" />
         {/* Background Image */}

@@ -64,7 +64,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative pt-10 md:py-20 text-center overflow-hidden">
+    <section className="relative py-10 md:py-20 text-center overflow-hidden">
 
       {/* Background */}
       <div className="absolute inset-0 z-[-10]">
@@ -76,7 +76,7 @@ export default function Testimonials() {
         />
         <div className="absolute inset-0 bg-white/70" />
         <div className="absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent" />
-        <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent" />
+        <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-white md:from-white/80 to-transparent" />
       </div>
 
       <Container>

@@ -27,17 +27,17 @@ export default function RestSection() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative h-[300px] md:h-[500px] rounded-b-[24px] md:rounded-r-[24px] overflow-hidden">
+          <div className="relative h-[300px] md:h-[540px] rounded-b-[24px] md:rounded-r-[24px] overflow-hidden">
 
             <Image
-              src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777352401/208bb3164c040ef306a0874503fa5da68c734180_1_ncssj7.jpg" // replace with your image
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773857307/dji_mimo_20260302_174944_0_1772510338372_photo_1_iiyaox.jpg" // replace with your image
               alt="Luxury Stay"
               fill
               className="object-cover"
             />
 
             {/* LEFT FADE OVERLAY (important) */}
-            <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-white via-white/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-white via-white/20 to-transparent" />
 
           </div>
 

@@ -24,7 +24,7 @@ export default function HeroBanner({
 }: HeroBannerProps) {
   return (
     <section className="relative w-full pb-10 md:pb-20 px-4 "> 
-      <div className="relative w-full h-[380px] md:h-[540px] rounded-[30px] overflow-hidden">
+      <div className="relative w-full h-[440px] md:h-[560px] rounded-[30px] overflow-hidden z-[-10]">
       {/* Background Image */}
       <Image
         src={backgroundImage}
@@ -33,16 +33,16 @@ export default function HeroBanner({
         priority
         className="object-cover "
       />
-    <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-30" />
+    <div className="pointer-events-none absolute top-0 h-60 md:h-120 w-full bg-gradient-to-b from-white/70 via-white to-transparent z-4" />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white/20 bg-gradient-to-b from-white via-white/10 to-transparent" />
+      <div className="absolute inset-0 bg-white/20 bg-gradient-to-b from-white via-white/5 to-transparent" />
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+      <div className="absolute inset-0 flex flex-col items-center text-center px-4 z-10">
         
-        <h1 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
+        <h1 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6 mt-10 md:mt-20">
           {highlight && (
-            <span className="text-orange-600">{highlight} </span>
+            <span className="text-orange-500">{highlight} </span>
           )}
           <span className="text-[#1D4063]">{title}</span>
         </h1>

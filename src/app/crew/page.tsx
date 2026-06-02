@@ -30,7 +30,7 @@ export default function Crew() {
         <>
             <Navbar/>
             <Hero
-                backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1778395956/65474a873b42f22b98669d352126f453ef14ad4d_nnhpee.webp"
+                backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780396683/Air-France-Sigiriya-Tour_of6sce.jpg"
                 title="Meet The Crew."
                 subtitle="The local storytellers who guide your journey and the premium machines that get you there safely. Experience Sri Lanka with the island's most dedicated team."
             />

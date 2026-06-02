@@ -4,10 +4,10 @@ import Container from "../Container";
 
 export default function ModernBackbone() {
   return (
-    <section className="relative pt-10 md:pt-20 text-center overflow-hidden">
+    <section className="relative pt-10 md:pt-20  md:-mb-4 text-center overflow-hidden z-40">
 
       {/* Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-[-10]">
         <Image
           src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777352788/7b8ca57d715c334a145db1aaa2a0b901bd10dd68_fy4nmf.jpg" // replace with your image
           alt="Ocean background"
@@ -16,13 +16,13 @@ export default function ModernBackbone() {
         />
 
         {/* Strong white overlay */}
-        <div className="absolute inset-0 bg-white/80" />
+        <div className="absolute inset-0 bg-white/70 z-[1]" />
 
         {/* Top fade */}
-        <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 w-full h-42 bg-gradient-to-b from-white to-transparent z-[2]" />
 
         {/* Bottom fade */}
-        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-white to-transparent" />
+        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-[2]" />
       </div>
 
       {/* Content */}
@@ -40,7 +40,7 @@ export default function ModernBackbone() {
         </h2>
 
         {/* Description */}
-        <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed mb-12 max-w-3xl mx-auto">
+        <p className="text-body text-gray-600 text-[16px] md:text-[18px] leading-relaxed mb-8 md:mb-16 max-w-4xl mx-auto">
           Sri Lanka Tour Company is proudly powered by Digital Escapes. By combining the raw beauty of the island with the digital expertise of Digital Escapes, we have built a modern gateway. While we handle the dirt paths and the mountain treks, our digital roots ensure your booking and communication are seamless. Founded by Shashindu de Silva, this partnership uses technology to get you closer to nature.
         </p>
 

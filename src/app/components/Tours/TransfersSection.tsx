@@ -36,7 +36,7 @@ export default function TransfersSection() {
 
     
   return (
-    <section className="pt-10 md:pt-20 text-center">
+    <section className="py-10 md:py-20 text-center">
       {/* HEADER */}
       <span className="inline-block text-label text-[10px] md:text-[14px] tracking-widest bg-gray-200 text-gray-600 px-4 py-1 rounded-full mb-4">
         GET AROUND

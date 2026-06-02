@@ -32,7 +32,7 @@ export default function Accommodation() {
         <>
         <Navbar/>
             <Hero
-                backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777735875/9c126cffd36c950dbd63793dfc2700b0f556157b_1_zjw5ab.webp"
+                backgroundImage="https://res.cloudinary.com/dpjmcup95/image/upload/v1773978356/DSC02767HDR-3-2_1_ksyd3g.jpg"
                 title="Your Home"
                 highlight="Base For Adventure"
                 subtitle="From luxury private villas to serene wellness retreats, we have curated the finest stays in Sri Lanka to perfectly complement your one-day tours."

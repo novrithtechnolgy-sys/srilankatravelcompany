@@ -57,10 +57,10 @@ export default function Navbar() {
               {/* Logo */}
               <Link href="/">
                 <Image
-                  src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1778244094/Frame_344_sw1i3o.png"
+                  src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780389001/SLTC_Logo-014_wl6ffs.png"
                   alt="Logo"
-                  width={540}
-                  height={540}
+                  width={720}
+                  height={720}
                   className="h-8 md:h-10 w-auto "
                 />
               </Link>

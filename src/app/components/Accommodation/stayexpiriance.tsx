@@ -17,7 +17,7 @@ export default function StayExpiriance() {
           {/* LEFT IMAGE */}
           <div className="relative w-full h-[400px] md:h-[500px] rounded-[24px] overflow-hidden shadow-md order-2 md:order-1 z-40">
             <Image
-              src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777736143/1ce9854e51bcd9a323eafb57fbcde91b8284b75e_4_dvnzgl.webp" // replace with your image
+              src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780401924/e16ea798bbee5be2f3cd4e6827cf95da9cd7c7d8-1600x1068_v6dz7g.webp" // replace with your image
               alt="Colombo Tower"
               fill
               className="object-cover object-center"

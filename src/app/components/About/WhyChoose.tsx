@@ -24,15 +24,15 @@ const features = [
 export default function WhyChoose() {
   return (
     <section className="relative py-10 md:py-20 overflow-hidden">
-       <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-20" />
-        <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent z-20" />
+       <div className="pointer-events-none absolute top-0 h-32 w-full bg-gradient-to-b from-white to-transparent z-[-1]" />
+        <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent z-[-1]" />
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-[-10]">
         <img
           src="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1777351919/7f0ead6749b4073bd985c7a9c54c3502b5bef992_foqab3.webp" // replace with your image
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/70" />
+        <div className="absolute inset-0 bg-white/70 " />
       </div>
 
       {/* Content */}
