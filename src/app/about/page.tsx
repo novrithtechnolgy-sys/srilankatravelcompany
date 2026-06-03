@@ -32,7 +32,7 @@ export default function About() {
     <>
         <Navbar/>
         <Hero
-        backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780394777/aerial-view-tropical-coastline-beach-islet_ehhcfh.avif"
+        backgroundImage="https://res.cloudinary.com/dy0tcxfmu/image/upload/v1780485284/aerial-view-tropical-coastline-beach-islet_gckqfj.webp"
         title="More Than Just a Trip."
         highlight="A Sri Lankan Soul-Search."
         buttonHref="/tours"

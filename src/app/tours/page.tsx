@@ -36,7 +36,7 @@ export default function Experience() {
                 title="One Day."
                 highlight="Zero Regrets."
                 subtitle=" We have mapped out the most efficient and soul-stirring routes across the island so you can experience the best of Sri Lanka in a single sunrise to sunset journey."
-                buttonText="WhatsApp Us  →"
+                buttonText="WhatsApp Us"
                 buttonHref="https://wa.me/+94771234567?text=Hello%20Sri%20Lanka%20Travel%20Company!%20I%20would%20like%20to%20inquire%20about%20your%20tours."
             />
             <ExperienceGrid />
