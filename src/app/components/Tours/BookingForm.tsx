@@ -84,7 +84,7 @@ export default function BookingForm({ slug }: { slug: string }) {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* NAME */}
             <div>
-              <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px] uppercase">
+              <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px] ">
                 Name 
               </label>
 
@@ -101,7 +101,7 @@ export default function BookingForm({ slug }: { slug: string }) {
             </div>
             {/* EMAIL */}
             <div>
-              <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px] uppercase">
+              <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px] ">
                 Email
               </label>
               <div className="flex items-center border-b mt-2">
@@ -121,7 +121,7 @@ export default function BookingForm({ slug }: { slug: string }) {
           <div className="grid md:grid-cols-2 gap-8">
             {/* DATE */}
             <div>
-              <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px] uppercase">
+              <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px] ">
                 Select Date
               </label>
 

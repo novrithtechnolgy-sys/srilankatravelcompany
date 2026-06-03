@@ -119,7 +119,7 @@ export default function ContactForm() {
             {/* NAME */}
             <div>
               <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px]">
-                FULL NAME
+                Full Name
               </label>
 
               <input
@@ -128,7 +128,7 @@ export default function ContactForm() {
                 required
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Thomas Edison"
+                placeholder="John Doe"
                 className="w-full border-b border-gray-400 bg-transparent py-2 text-gray-700 outline-none focus:border-blue-900"
               />
             </div>
@@ -136,7 +136,7 @@ export default function ContactForm() {
             {/* EMAIL */}
             <div>
               <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px]">
-                EMAIL ADDRESS
+                Email Address
               </label>
 
               <input
@@ -156,7 +156,7 @@ export default function ContactForm() {
             {/* TOUR */}
             <div>
               <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px]">
-                TOUR OF INTEREST
+                Tour of Interest
               </label>
 
               <select
@@ -178,7 +178,7 @@ export default function ContactForm() {
             {/* DATE */}
             <div>
               <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-3 md:text-[18px]">
-                TRAVEL DATE
+                Travel Date
               </label>
 
               <input
@@ -195,7 +195,7 @@ export default function ContactForm() {
           {/* MESSAGE */}
           <div>
             <label className="mb-1 block text-[16px] font-semibold text-gray-800 md:mb-4 md:text-[18px]">
-              YOUR MESSAGE
+              Your Message
             </label>
 
             <textarea
