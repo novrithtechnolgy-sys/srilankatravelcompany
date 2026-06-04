@@ -26,7 +26,7 @@ export default function GuidesSection() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await client.fetch(`
-        *[_type == "guide"]{
+        *[_type == "guide"] | order(order asc){
           _id,
           name,
           role,

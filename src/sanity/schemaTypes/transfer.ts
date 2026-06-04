@@ -56,5 +56,9 @@ export default {
 
     { name: "ctaImage", type: "image", title: "CTA Background Image" },
     { name: "ctaTitle", type: "string" },
+
+    { name: "order", title: "Order", type: "number" },
   ],
+
+
 };

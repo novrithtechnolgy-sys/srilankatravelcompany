@@ -55,7 +55,7 @@ export default function Hero({ title, highlight, subtitle, buttonText, buttonHre
                 <Button 
                 href={buttonHref}
                 onClick={onButtonClick}>
-                  {buttonText || "Explore Tours →"}
+                  {buttonText || "Explore Tours"}
                 </Button>
               </div>
             </div>

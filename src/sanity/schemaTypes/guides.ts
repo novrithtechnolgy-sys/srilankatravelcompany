@@ -28,5 +28,11 @@ export default {
       title: "Guide Bio",
       type: "text",
     },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      description: "Control display order",
+    }
   ],
 };

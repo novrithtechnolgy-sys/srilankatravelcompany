@@ -44,7 +44,7 @@ export default function Travelmadeeasy() {
 
       <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
         <span className="text-orange-500">Travel</span>{" "}
-        <span className="text-blue-900">Made Easy</span>
+        <span className="text-[#1D4063]">Made Easy</span>
       </h2>
 
       <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed max-w-[300px] md:max-w-2xl mx-auto mb-8 md:mb-16">
@@ -57,6 +57,7 @@ export default function Travelmadeeasy() {
           {data.map((item) => (
             <div key={item._id}>
               {/* IMAGE */}
+               <Link href={`/transfers/bandaranaike-international-airport-pickups`} >
               <div className="relative h-[360px] rounded-[24px] overflow-hidden mb-6">
                 <Image
                   src={urlFor(item.image).url()}
@@ -67,7 +68,7 @@ export default function Travelmadeeasy() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-body-header text-[24px] md:text-[26px] text-blue-900 font-semibold mb-4">
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1E3355] font-semibold mb-4 line-clamp-1">
                 {item.title}
               </h3>
 
@@ -79,12 +80,13 @@ export default function Travelmadeeasy() {
               {/* LINK */}
               {item.slug && (
                 <Link
-                  href={`/transfers/${item.slug.current}`}
-                  className="text-orange-500 text-[16px] md:text-[18px] font-medium flex items-center gap-1"
+                  href={`/transfers/bandaranaike-international-airport-pickups`}
+                  className="text-orange-500 text-sm font-medium flex items-center gap-1"
                 >
                   Learn More  <span> → </span>
                 </Link>
               )}
+              </Link>
             </div>
           ))}
         </div>

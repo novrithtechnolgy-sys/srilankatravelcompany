@@ -53,7 +53,7 @@ export default function JourneySection({
 
           <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
             <span className="text-orange-500">{title1}</span>{" "}
-            <span className="text-[#1E3355]">{title2}</span>
+            <span className="text-[#1D4063]">{title2}</span>
           </h2>
 
           <p className="text-body mx-auto text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
@@ -62,16 +62,16 @@ export default function JourneySection({
         </div>
 
         {/* DETAILS */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20 md:mb-40 text-body text-left">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 md:mb-40 text-body text-left">
           <Item icon={<Clock />} label="Duration" value={details.duration} />
           <Item icon={<Timer />} label="Start Time" value={details.startTime} />
           <Item icon={<Car />} label="Pickup" value={details.pickup} />
           <Item icon={<Activity />} label="Difficulty" value={details.difficulty} />
-          <Item
+          {/* <Item
             icon={<InfinityIcon />}
             label="Includes"
             value={details.includes?.join(", ")}
-          />
+          /> */}
         </div>
 
         {/* GALLERY */}
@@ -107,6 +107,39 @@ export default function JourneySection({
             </div>
           </div>
         )}
+        {/* HEADER */}
+        <div className="text-center mt-20 md:mt-40">
+          <span className="inline-block text-label rounded-full bg-gray-200 px-4 py-1 text-[10px] md:text-[14px] uppercase tracking-[4px] text-gray-700 mb-4">
+            EXPERIENCE
+          </span>
+
+          <h2 className="text-section text-[34px] md:text-[40px] xl:text-[64px] font-semibold leading-tight mb-4 md:mb-6">
+            <span className="text-orange-500">Everything Handled</span>{" "}
+            <span className="text-[#1D4063]">For Your Journey</span>
+          </h2>
+
+          <p className="text-body mx-auto text-[16px] md:text-[18px] leading-relaxed text-gray-600 mb-8 md:mb-16">
+            Every journey with Travel My Sri Lanka is designed to feel smooth, safe, and stress-free from the moment you start. We take care of the essential travel details, including private transport, pickup coordination, route planning, and on-trip assistance, so you can focus on enjoying the destination instead of managing the logistics. Whether your day takes you to ancient heritage sites, wildlife parks, beaches, or misty hill country views, our team ensures your experience is comfortable, well-organized, and memorable from start to finish.
+          </p>
+        </div>
+
+        {/* DETAILS */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-20 gap-x-8">
+          {details.includes?.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="w-14 h-14 flex items-center justify-center rounded-[20px] bg-[#1D4063] text-white mb-6">
+                <InfinityIcon size={24} />
+              </div>
+
+              <h3 className="text-body-header text-[24px] md:text-[26px] text-[#1E3355] font-semibold mb-4">
+                {item}
+              </h3>
+            </div>
+          ))}
+        </div>
       </Container>
     </section>
   );
@@ -125,16 +158,16 @@ function Item({
   if (!value) return null;
 
   return (
-    <div className="flex items-start gap-4">
-      <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#1D4063] text-white shrink-0">
+    <div className="flex flex-col items-center gap-4">
+      <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-[20px] bg-[#1D4063] text-white shrink-0">
         {icon}
       </div>
 
       <div>
-        <p className="text-[14px] md:text-[18px] uppercase tracking-wide text-gray-500">
+        <p className="text-body-header text-[24px] md:text-[26px] text-[#1D4063] font-semibold mb-4 text-center">
           {label}
         </p>
-        <p className="text-[14px] md:text-[18px] text-blue-900 font-medium">{value}</p>
+        <p className="text-[14px] md:text-[18px] text-center text-gray-600 font-medium">{value}</p>
       </div>
     </div>
   );

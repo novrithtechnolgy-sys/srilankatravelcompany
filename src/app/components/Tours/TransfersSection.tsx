@@ -57,6 +57,7 @@ export default function TransfersSection() {
           {data.map((item) => (
             <div key={item._id}>
               {/* IMAGE */}
+              <Link href={`/transfers/bandaranaike-international-airport-pickups`} >
               <div className="relative h-[220px] md:h-[360px] rounded-[20px] overflow-hidden mb-6">
                 <Image
                   src={urlFor(item.image).url()}
@@ -85,6 +86,7 @@ export default function TransfersSection() {
                   Learn More <span>→</span>
                 </Link>
               )}
+                  </Link>
             </div>
           ))}
         </div>

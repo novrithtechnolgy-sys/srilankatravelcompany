@@ -19,27 +19,46 @@ type Props = {
 export default function StayBeforeJourney({
   stays = [],
 }: Props) {
-  const [index, setIndex] = useState(0);
+  const [desktopIndex, setDesktopIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  const visible = stays.slice(index, index + 3);
+  const visibleItems = stays.slice(
+  desktopIndex,
+  desktopIndex + 3
+);
 
-  const next = () => {
-    if (stays.length === 0) return;
+stays[mobileIndex]
 
-    setIndex((prev) =>
-      prev + 1 >= stays.length ? 0 : prev + 1
-    );
-  };
+  // Loop navigation
+const nextDesktop = () => {
+  const maxIndex = Math.max(0, stays.length - 3);
 
-  const prev = () => {
-    if (stays.length === 0) return;
+  setDesktopIndex((prev) =>
+    prev >= maxIndex ? 0 : prev + 1
+  );
+};
 
-    setIndex((prev) =>
-      prev === 0 ? stays.length - 1 : prev - 1
-    );
-  };
+const prevDesktop = () => {
+  const maxIndex = Math.max(0, stays.length - 3);
+
+  setDesktopIndex((prev) =>
+    prev <= 0 ? maxIndex : prev - 1
+  );
+};
+
+const nextMobile = () => {
+  setMobileIndex((prev) =>
+    (prev + 1) % stays.length
+  );
+};
+
+const prevMobile = () => {
+  setMobileIndex((prev) =>
+    prev === 0 ? stays.length - 1 : prev - 1
+  );
+};
 
   return (
     <section className="py-10 md:py-20 text-center">
@@ -53,7 +72,7 @@ export default function StayBeforeJourney({
           <span className="text-orange-500">
             Where to Stay
           </span>{" "}
-          <span className="text-[#1E3355]">
+          <span className="text-[#1D4063]">
             Before Your Journey
           </span>
         </h2>
@@ -66,7 +85,7 @@ export default function StayBeforeJourney({
 
         <div className="hidden md:grid gap-8 grid-cols-1 md:grid-cols-3">
           {/* DESKTOP */}
-            {visible.map((item, i) => (
+            {visibleItems.map((item, i) => (
               <div key={i}>
                 <div className="relative h-[360px] rounded-[24px] overflow-hidden mb-6">
                   <Image
@@ -81,7 +100,7 @@ export default function StayBeforeJourney({
                   {item.title}
                 </h3>
 
-                <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
+                <p className="text-body text-[16px] md:text-[18px] text-gray-600 leading-relaxed line-clamp-3">
                   {item.desc}
                 </p>
               </div>
@@ -102,12 +121,12 @@ export default function StayBeforeJourney({
 
               // swipe left
               if (distance > 50) {
-                next();
+                nextMobile();
               }
 
               // swipe right
               if (distance < -50) {
-                prev();
+                prevMobile();
               }
             }}
           >
@@ -115,19 +134,19 @@ export default function StayBeforeJourney({
               <div>
                 <div className="relative h-[260px] rounded-[24px] overflow-hidden mb-6">
                   <Image
-                    src={urlFor(stays[index].image).url()}
-                    alt={stays[index].title}
+                    src={urlFor(stays[mobileIndex].image).url()}
+                    alt={stays[mobileIndex].title}
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
                   />
                 </div>
               <div className="min-h-[120px] flex flex-col">
-                <h3 className="text-body-header text-[22px] text-[#1E3355] font-semibold mb-3">
-                  {stays[index].title}
+                <h3 className="text-body-header text-[22px] text-[#1D4063] font-semibold mb-3">
+                  {stays[mobileIndex].title}
                 </h3>
 
                 <p className="text-body text-[16px] text-gray-600 leading-relaxed px-2 line-clamp-3">
-                  {stays[index].desc}
+                  {stays[mobileIndex].desc}
                 </p>
               </div>
               </div>
@@ -135,12 +154,12 @@ export default function StayBeforeJourney({
           </div>
 
           {/* DOTS */}
-            <div className="mt-8 flex justify-center gap-2">
+            <div className="md:hidden mt-8 flex justify-center gap-2">
               {stays.map((_, i) => (
                 <div
                   key={i}
                   className={`h-2 rounded-full transition-all ${
-                  i === index
+                  i === mobileIndex
                     ? "w-4 bg-blue-900"
                     : "w-2 bg-gray-300"
                   }`}
@@ -149,16 +168,31 @@ export default function StayBeforeJourney({
             </div>          
 
           {/* NAV */}
-          <div className="mt-10 flex justify-center gap-4 md:gap-8">
+          <div className="hidden md:flex mt-10 flex justify-center gap-4 md:gap-8">
             <button
-              onClick={prev}
+              onClick={prevDesktop}
               className="flex h-10 w-10 items-center justify-center rounded-full border"
             >
               <ChevronLeft size={18} />
             </button>
 
             <button
-              onClick={next}
+              onClick={nextDesktop}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1D4063] text-white"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+          <div className="md:hidden mt-10 flex justify-center gap-4 md:gap-8">
+            <button
+              onClick={prevMobile}
+              className="flex h-10 w-10 items-center justify-center rounded-full border"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <button
+              onClick={nextMobile}
               className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1D4063] text-white"
             >
               <ChevronRight size={18} />

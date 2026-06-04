@@ -91,7 +91,7 @@ export default function ExperienceGrid() {
                     {category.split(" ")[0]}
                   </span>{" "}
                   
-                  <span className="text-[#1E3355]">
+                  <span className="text-[#1D4063]">
                     {category.split(" ").slice(1).join(" ")}
                   </span>
                 </h3>
