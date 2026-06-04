@@ -111,7 +111,7 @@ export default function Footer() {
         © 2026 Sri Lanka Tour Company All rights reserved.
       </p>
       <p className="text-center md:text-right text-sm text-white/70">
-        Powered by{" "}
+        Developed by{" "}
         <span className="text-white"><a href="https://www.novrithtechnology.com" className="font-bold hover:underline">Novrith Technology</a></span>
       </p>
     </div>
